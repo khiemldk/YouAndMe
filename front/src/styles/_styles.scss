@@ -1,0 +1,42 @@
+* {
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+  line-height: 1.3rem;
+  box-sizing: border-box;
+}
+body {
+  color: #6d6e71;
+  font-family: "Roboto";
+  font-size: 1.2rem;
+}
+.grid {
+  width: 1100px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.grid__full-width {
+  width: 100%;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/font/Roboto-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "RLight";
+  src: url("/font/Roboto-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "RMedium";
+  src: url("/font/Roboto-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "RBold";
+  src: url("/font/Roboto-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "MilkShake";
+  src: url("/font/Milkshake-400.ttf") format("truetype");
+}

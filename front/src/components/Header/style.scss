@@ -1,0 +1,148 @@
+@import "~styles/_mixins.scss";
+:root {
+  --clickSearch : -284px;
+}
+.header{
+  
+  z-index: 1;
+  position: fixed;
+  background-color: #231F20;
+  justify-content: space-between;
+  color : #fff; 
+  height: 76px;
+  padding: 10px 0;
+  img {
+    width:40px;
+    height:40px;
+    margin: auto 0;
+  }
+  h2 {
+    color : #fff;
+    margin: 0;
+    line-height: 56px;
+    font-family: "MilkShake";
+  }
+  .arrow-icon {
+    position: absolute;
+    top: 36%;
+    left: 10px;
+  }
+  .down-icon {
+    margin-top: 6px;
+    margin-left: 2px;
+  }
+  .list-icon {
+    display: none;
+  }
+  input {
+    border-radius: 13px;
+    width:236px;
+    padding: 6px 12px 6px 30px;
+    background: rgba(255,255,255, 0.2);
+    border: none;
+    font-size: 1rem;
+    outline: none;
+  }
+  &__search {
+    position: relative;
+  }
+  &__custom {
+    justify-content: space-between;
+    flex: 6;
+    align-items:center;
+    &--logo {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  &__cate {
+    justify-content: space-around;
+    align-items:center;
+    flex: 5;
+    > div {
+      position: relative;
+    }
+    p {
+      display: inline-block;
+      font-family: RMedium;
+      font-size: 1.4rem;
+      margin: 0;
+      &:hover {
+        cursor: pointer;
+        color : #27aae1;
+      }
+    }
+  }
+  &__list-item {
+    position: absolute;
+    background-color: #231F20;
+    width: 150px;
+    right: -6px;
+    top: 40px;
+    span {
+      display: block;
+      padding: 8px 0;
+      padding-left: 32px;
+      border-bottom: 1px solid rgba(255,255,255, 0.1);
+      &:hover {
+        cursor: pointer;
+        color : #27aae1;
+      }
+    }
+  }
+  &__customHeaderBg {
+    background-color: transparent;
+  }
+  @include mobile {
+    &__list-item {
+      position: initial;
+      flex-direction: column;
+      width:100%;
+      background-color: #282425;
+    }
+    &__custom--logo {
+      margin-left: 8px;
+    }
+    &__search {
+      display: none;
+      position: absolute;
+      bottom:var(--clickSearch);
+      left: 50%;
+      transform: translate(-50%);
+      z-index: 1;
+
+    }
+    &__cate {
+
+    }
+    .list-icon{
+      margin: auto 0;
+      display: block;
+    }
+    .borderMobile{
+      border-bottom: 1px solid #888;
+    }
+    .clickBtn {
+      border-top: 1px solid #888;
+      position: absolute;
+      background-color: #231F20;
+      width:100%;
+      top: 76px;
+      padding: 8px 0 60px 0;
+      p {
+        width: 100%;
+        height:46px;
+        margin-left: 12px;
+        align-items:center;
+        line-height:46px;
+      }
+    }
+  }
+  
+  @include tablet{
+    &__search {
+      display:none;
+    }
+  }
+}

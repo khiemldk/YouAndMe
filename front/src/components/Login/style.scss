@@ -1,0 +1,137 @@
+@import "~styles/_mixins.scss";
+
+.login {
+  
+  .grid {
+    justify-content: space-between;
+  }
+  padding-top: 56px;
+  background: linear-gradient(rgba(0,0,0, 0.7) , rgba(0,0,0, 0.7)), url(http://placehold.it/1600x900) fixed repeat;
+  background-size: 100% 100%;
+  max-height: 1000px;
+  color: #fff;
+  box-shadow: 0 0 35px rgb(0, 0, 0 / 40%);
+  &__intro {
+    height: 100vh;
+    margin-top: 25vh;
+  }
+  &__form{
+    margin-top: 5vh;
+    background-color: #fff;
+    min-height: 589px;
+    border-radius: 6px;
+    padding: 60px 40px 40px 60px;
+    position: relative;
+    &--content {
+      color: #27aae1;
+      span:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+    &::before{
+      content: "";
+      background: linear-gradient(to right, rgba(255,255,255, 0.2) , rgba(255,255,255, 0.05));
+      height:80%;
+      width:50px;
+      position: absolute;
+      left:-50px;
+      border-radius: 6px 0 0 6px;
+    }
+    &--choose-btn {
+      position: absolute;
+      left:-50px;
+      height:80%;
+      flex-direction: column;
+      justify-content: space-around;
+      p {
+        display: block;
+        padding: 4px 8px;
+        transform: rotate(-90deg);
+        color :#939598;
+        font-size: 1.4rem;
+        padding-bottom: 20px;
+        position: relative;
+        &:hover{
+          cursor: pointer;
+        }
+        &:first-child::before {
+          content: "";
+          background: rgba(255,255,255, 0.1);
+          width: 1px;
+          position: absolute;
+          margin-left:-100px;
+          height: 20px;
+        }
+      }
+    }
+  }
+  &__login {
+   
+  }
+  .ant-input::placeholder {
+    color : #939598;
+    font-size: 1.2rem
+  }
+  &__form-login, &__form-register {
+    h5 {
+      color : #27aae1;
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+    h2 {
+      color: #27aae1;
+      font-size: 2.4rem;
+      
+    }
+    p {
+      color : #939598;
+    }
+    span {
+      font-size:1.3rem;
+    }
+    > span {
+      color: #27aae1!important;
+      font-size: 1.3rem;
+    }
+    
+  }
+  h1 {
+    color: #fff;
+    font-size: 4rem;
+    font-family: RBold;
+  }
+  &__text {
+    line-height: 3.2rem;
+    font-size: 1.6rem;
+  }
+  &__learn-more {
+    a {
+      background-color:#27aae1;
+      padding: 8px 28px;
+      font-size: 1.8rem;
+      width: 150px;
+      display: block;
+      border-radius: 30px;
+      &:hover {
+        background-color: #149AC9;
+        transition:all 1s;
+      }
+    }
+  }
+  &__date-birth{
+    font-size: 1.2rem;
+    color: #6d6e71;
+  }
+  .ant-select-selector {
+    border-radius: 30px!important;
+  }
+  .ant-form-item {
+    margin-bottom: 10px;
+  }
+  .active {
+    color: #fff;
+  }
+}
