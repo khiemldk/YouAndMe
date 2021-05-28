@@ -134,4 +134,40 @@
   .active {
     color: #fff;
   }
+  @include mobile {
+    padding-top: 1px;
+    h1 {
+      font-size: 3rem;
+    }
+    &__text {
+      font-size: 1.4rem;
+    }
+    &__learn-more {
+      display: flex;
+      justify-content: center;
+      padding-bottom: 50px;
+    }
+    &__intro {
+      height:auto;
+    }
+    &__form {
+      &::before{
+        height: 10%;
+        width: 250px;
+        top: -60px;
+        left: 44px;
+        border-radius: 6px 6px 0 0;
+      }
+      &--choose-btn {
+        flex-direction: row;
+        top: -45px;
+        left: 44px;
+        height: 15%;
+        width: 250px;
+        p{
+          transform:none;
+        }
+      }
+    }
+  }
 }

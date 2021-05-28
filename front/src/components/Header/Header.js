@@ -78,7 +78,7 @@ const Header = () => {
             <img src="/88-512.webp" />
             <h2 className="ml-3">You And Me</h2>
           </div>
-          <div className={`header__search ${showDisplay ? "" : "d-block"}`} ref={searchRef}>
+          <div className={`header__search ${showDisplay ? "d-block" : ""}`} ref={searchRef}>
             <FontAwesomeIcon
               icon={faSearch} color="#fff"
               className="arrow-icon"
@@ -87,7 +87,7 @@ const Header = () => {
           </div>
         </div>
         {/* ${showDisplay ? "clickBtn" : "d-block clickBtn"} */}
-        <div ref={clickBtn} className={`header__cate d-md-flex d-none ${showDisplay ? "clickBtn" : "d-block clickBtn"}`}>
+        <div ref={clickBtn} className={`header__cate d-md-flex d-none ${showDisplay ? "d-block clickBtn" : "clickBtn"}`}>
           {list.map((item, index) => (
             <MenuItem
               text={item}

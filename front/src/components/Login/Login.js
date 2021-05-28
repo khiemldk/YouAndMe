@@ -8,12 +8,12 @@ import './style.scss';
 
 const LoginForm = ({ submitData, form }) => {
   return (
-    <div className="login__form-login">
-      <h2 className="mb-4">Login</h2>
+    <div className="login__form-login text-center text-lg-left">
+      <h2 className="mb-lg-4">Login</h2>
       <p>Log into your account</p>
       <Form name="login" form={form} className="login__form--content" onFinish={submitData}>
         <Form.Item
-          className="login__item mb-4"
+          className="login__item mb-lg-4"
           name="account"
           rules={[
             {
@@ -29,7 +29,7 @@ const LoginForm = ({ submitData, form }) => {
           <Input placeholder="Your email" style={{ borderRadius: 30 }} />
         </Form.Item>
         <Form.Item
-          className="login__item mb-4"
+          className="login__item mb-lg-4"
           name="password"
           rules={[
             {
@@ -42,7 +42,7 @@ const LoginForm = ({ submitData, form }) => {
           <Input.Password placeholder="Password" style={{ borderRadius: 30 }} />
         </Form.Item>
 
-        <span className="d-block mb-3">Forgot Password</span>
+        <span className="d-block mb-lg-3">Forgot Password</span>
         <Form.Item>
           <Button type="submit" text="Login Now" />
         </Form.Item>
@@ -70,14 +70,14 @@ const RegisterForm = ({ form, submitData }) => {
   }
 
   return (
-    <div className="login__form-register">
-      <h2 className="mb-4">Register Now !!!</h2>
+    <div className="login__form-register text-center text-lg-left">
+      <h2 className="mb-lg-4">Register Now !!!</h2>
       <p>Be cool and join today. Meet millions</p>
       <Form name="register" form={form} onFinish={submitData}>
-        <div className="grid d-lg-flex">
+        <div className="grid d-flex">
           <div className="col-6 ml-n4 mr-n4 pr-0">
             <Form.Item
-              className="login__item mb-4"
+              className="login__item mb-lg-4"
               name="first_name"
               rules={[
                 {
@@ -91,7 +91,7 @@ const RegisterForm = ({ form, submitData }) => {
           </div>
           <div className="col-6 pl-0">
             <Form.Item
-              className="login__item mb-4"
+              className="login__item mb-lg-4"
               name="last_name"
               rules={[
                 {
@@ -166,9 +166,9 @@ const RegisterForm = ({ form, submitData }) => {
           </Form.Item>
         </div>
         <div className="grid">
-          <div className="login__date-birth mb-3"><strong>Date Of Birdth</strong></div>
-          <div className="grid d-lg-flex">
-            <div className="col-3 ml-n4 pr-0">
+          <div className="login__date-birth mb-lg-3"><strong>Date Of Birdth</strong></div>
+          <div className="grid d-flex flex-wrap">
+            <div className="col-lg-3 ml-n4 pr-0 col-6">
               <Form.Item
                 name="day"
                 rules={[
@@ -187,7 +187,7 @@ const RegisterForm = ({ form, submitData }) => {
                 </Select>
               </Form.Item>
             </div>
-            <div className="col-3 ml-n4 pr-0">
+            <div className="col-lg-3 ml-n4 pr-0 col-6 mr-4 mr-lg-0">
               <Form.Item name="month" >
                 <Select placeholder="Month">
                   {
@@ -198,7 +198,7 @@ const RegisterForm = ({ form, submitData }) => {
                 </Select>
               </Form.Item>
             </div>
-            <div className="col-6 pl-0">
+            <div className="col-lg-6 pl-0 col-12">
               <Form.Item
                 name="year"
                 rules={[
@@ -219,10 +219,10 @@ const RegisterForm = ({ form, submitData }) => {
             </div>
           </div>
         </div>
-        <div className="grid">
+        <div className="grid text-center text-lg-left">
           <Form.Item
             name="gender"
-            className="login__item mb-2"
+            className="login__item mb-lg-2"
             rules={[
               {
                 required: true,
@@ -236,8 +236,8 @@ const RegisterForm = ({ form, submitData }) => {
             </Radio.Group>
           </Form.Item>
         </div>
-        <div className="grid d-lg-flex">
-          <div className="col-6 ml-n4 pr-0">
+        <div className="grid d-flex">
+          <div className="col-lg-6 ml-n4 pr-lg-0 pr-4">
             <Form.Item
               name="city"
               className="login__item mb-4"
@@ -253,7 +253,7 @@ const RegisterForm = ({ form, submitData }) => {
               />
             </Form.Item>
           </div>
-          <div className="col-6 pl-0">
+          <div className="col-lg-6 pl-0">
             <Form.Item
               name="countries"
               className="login__item mb-4"
@@ -274,8 +274,8 @@ const RegisterForm = ({ form, submitData }) => {
             </Form.Item>
           </div>
         </div>
-        <h5 className="mb-4">Already have an account</h5>
-        <Form.Item>
+        <h5 className="mb-4 text-center text-lg-left">Already have an account</h5>
+        <Form.Item className="text-center text-lg-left">
           <Button type="submit" text="Register now" />
         </Form.Item>
       </Form>
@@ -289,7 +289,6 @@ const Login = () => {
   const [isRegister, setIsRegister] = useState(true)
 
   const submitData = (values) => {
-    console.log(values)
     form.resetFields();
   }
 
@@ -299,21 +298,21 @@ const Login = () => {
   return (
     <div className="grid__full-width login">
       <div className="grid d-lg-flex">
-        <div className="col-5 ml-n4 mr-n4">
-          <div className="login__intro">
+        <div className="col-lg-5 ml-lg-n4 mr-lg-n4 col-12">
+          <div className="login__intro text-center text-lg-left">
             <div className="login__title mb-5">
               <h1>Make Cool Friends !!!</h1>
             </div>
             <div className="login__text">
-              <p className="mb-4">You And Me is a social network that can be used to connect people. This is a greate website with lots of useful features created by Le Dinh Khiem - Full stack : Java - React js</p>
-              <p className="mb-5">Come here? You and Me? Together ?</p>
+              <p className="mb-lg-4">You And Me is a social network that can be used to connect people. This is a greate website with lots of useful features created by Le Dinh Khiem - Full stack : Java - React js</p>
+              <p className="mb-lg-5">Come here? You and Me? Together ?</p>
             </div>
             <div className="login__learn-more">
               <a>Learn More</a>
             </div>
           </div>
         </div>
-        <div className="col-6">
+        <div className="col-lg-6">
           <div className="login__form">
             <div className="login__form--choose-btn d-flex">
               <p className={!isRegister ? "active" : ""} onClick={handleRegister}>Login</p>

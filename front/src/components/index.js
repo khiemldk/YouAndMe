@@ -4,6 +4,7 @@ import Footer from 'components/Footer/Footer.js';
 import Login from 'components/Login/Login.js';
 import Button from 'components/common/Button/Button.js'
 import cui from 'components/cui/cui.js';
+import Profile from 'components/Profile/Profile.js'
 export {
   Header,
   Layout,
@@ -11,4 +12,5 @@ export {
   Login,
   Button,
   cui,
+  Profile,
 }

@@ -1,0 +1,53 @@
+@import "~styles/_mixins.scss";
+
+.profile { 
+  padding-top: 76px;
+  position: relative;
+  &__cover {
+    height: 360px;
+  }
+  &__picture {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    bottom: -40px;
+    left: 20px;
+    z-index: 1;
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 8px solid #fff;
+    }
+  }
+  &__name {
+    position: absolute;
+    width: 100%;
+    bottom: -100px;
+    span {
+      &:first-child {
+        color: #27aae1;
+        font-size: 2.4rem;
+      }
+    }
+  }
+  &__option {
+    width: 100%;
+    height: 56px;
+    background: rgba(0,0,0, .7);
+    position: absolute;
+    bottom: 5%;
+    
+  }
+  &__menu,
+  &__follow-me {
+    line-height: 56px;
+    span {
+      font-size: 1.4rem;
+    }
+    .custom-btn {
+      line-height: normal;
+    }
+  }
+  
+}
