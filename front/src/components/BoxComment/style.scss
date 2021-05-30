@@ -1,1 +1,20 @@
 @import "~styles/_mixins.scss";
+
+.box-comment {
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  &__item {
+    p {
+      strong {
+        color: #27aae1;
+      }
+      line-height: 22px;
+    }
+  }
+  &__input {
+
+  }
+}

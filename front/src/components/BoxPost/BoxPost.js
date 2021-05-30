@@ -1,3 +1,4 @@
+import { BoxComment } from 'components';
 import React from 'react';
 import BoxImage from './component/BoxImage';
 import './style.scss';
@@ -5,7 +6,9 @@ import './style.scss';
 const BoxPost = () => {
   return (
     <div className='grid box-post'>
-      <BoxImage />
+      <BoxImage>
+        <BoxComment />
+      </BoxImage>
     </div>
   );
 }
