@@ -1,0 +1,51 @@
+@import "~styles/_mixins.scss";
+
+.box-img {
+  background-color: #f8f8f8;
+  img {
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+  }
+  &__content {
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+  }
+  &__info {
+    border-bottom: 1px solid #e6e6e6;
+    strong {
+      color: #27aae1;
+    }
+    p {
+      color: #939598;
+    }
+    span {
+      &:hover {
+        cursor: pointer;
+      }
+
+    }
+  }
+  &__user{
+    span {
+      color: #8dc63f;
+    }
+  }
+  &__like {
+    span {
+      color: #ef4136;
+      &:first-child{
+        color: #8dc63f;
+      }
+      
+    }
+  }
+  &__post {
+    margin-left: 80px;
+    line-height: 22px;
+    border-bottom: 1px solid #e6e6e6;
+
+  }
+}

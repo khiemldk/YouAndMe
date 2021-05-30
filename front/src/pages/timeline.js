@@ -1,11 +1,11 @@
 import React from 'react';
-import { Layout, Profile } from 'components'
+import { Layout, TimeLine } from 'components'
 
 
 const timeline = ({ props }) => {
   return (
     <Layout>
-      <Profile />
+      <TimeLine />
     </Layout>
   );
 }

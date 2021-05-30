@@ -5,6 +5,10 @@ import Login from 'components/Login/Login.js';
 import Button from 'components/common/Button/Button.js'
 import cui from 'components/cui/cui.js';
 import Profile from 'components/Profile/Profile.js'
+import TimeLine from 'components/TimeLine/TimeLine.js'
+import BoxPublic from 'components/BoxPublic/BoxPublic.js'
+import Activity from 'components/Activity/Activity.js'
+import BoxPost from 'components/BoxPost/BoxPost.js'
 export {
   Header,
   Layout,
@@ -13,4 +17,8 @@ export {
   Button,
   cui,
   Profile,
+  TimeLine,
+  BoxPublic,
+  Activity,
+  BoxPost,
 }

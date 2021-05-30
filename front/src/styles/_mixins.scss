@@ -37,6 +37,12 @@ $lg-min: 1600px;
   }
 }
 
+@mixin ipad {
+  @media screen and (min-width: $xs-min) and (max-width: 860px) {
+    @content;
+  }
+}
+
 @mixin not-mobile {
   @media (min-width: $xs-min) {
     @content;

@@ -1,0 +1,32 @@
+@import "~styles/_mixins.scss";
+
+.activity {
+  h3,p {
+    color: #6d6e71;
+  }
+  &__list {
+  
+  }
+  &__item {
+    position: relative;
+    border-bottom: 1px solid #f1f2f2;
+    &::before {
+      border-left: 2px solid #8dc63f;
+      position: absolute;
+      content: '';
+      height: 30px;
+      top: 6px;
+    }
+    p {
+      font-size: 1.3rem;
+      line-height: 26px;
+    }
+    strong {
+      color: #27aae1;
+    }
+    span {
+      font-size: 1.3rem;
+      color: #939598;
+    }
+  }
+}
