@@ -1,10 +1,15 @@
 import React from 'react';
 import './style.scss';
 import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
+import { BoxComment } from 'components';
 
-const BoxImage = ({ children }) => {
+const BoxImage = ({ }) => {
   return (
-    <div className="grid box-img pb-5">
+    <div className="grid box-img pb-5 mt-5">
+      <div className="box-img__time-active">
+        <p className="ml-5"><strong>Khiem</strong></p>
+        <p className="ml-5">31/5/2021</p>
+      </div>
       <img src='http://placehold.it/1920x1280' />
       <div className="box-img__content pl-4 pt-4 d-flex">
         <img src='http://placehold.it/300x300' className='mr-4' />
@@ -23,7 +28,7 @@ const BoxImage = ({ children }) => {
         <p className="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.   </p>
       </div>
       <div className="box-img__content--comment">
-        {children}
+        <BoxComment />
       </div>
     </div>
   );

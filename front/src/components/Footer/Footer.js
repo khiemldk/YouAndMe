@@ -34,7 +34,7 @@ const Footer = () => {
   const router = useRouter();
   return (
     <div>
-      { router.pathname !== "/login" &&
+      { router.pathname !== "/" &&
         < div className="grid__full-width" >
           {/* <div className={`grid__full-width ${router.pathname === "/login" ? "d-none" : ""}`}> */}
           <div className="grid" >

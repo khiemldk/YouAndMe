@@ -11,7 +11,8 @@ import Activity from 'components/Activity/Activity.js';
 import BoxPost from 'components/BoxPost/BoxPost.js';
 import BoxComment from 'components/BoxComment/BoxComment.js';
 import Input from 'components/common/Input/Input.js'
-
+import NewsFeed from 'components/NewsFeed/NewsFeed.js';
+import SuggesFriends from 'components/SuggesFriends/SuggesFriends.js';
 export {
   Header,
   Layout,
@@ -25,5 +26,7 @@ export {
   Activity,
   BoxPost,
   BoxComment,
-  Input
+  Input,
+  NewsFeed,
+  SuggesFriends,
 }

@@ -1,20 +1,20 @@
-import { Activity, BoxPublic, Profile, BoxPost } from 'components';
+import { SuggesFriends, BoxPublic } from 'components';
 import React from 'react';
+import './style.scss';
 
-const Timeline = () => {
+const NewsFeed = () => {
   return (
-    <div className=''>
-      <Profile />
+    <div className="pt-76">
       <div className="grid d-md-flex">
         <div className="col-md-3 col-0">
         </div>
         <BoxPublic >
-          <BoxPost />
+
         </BoxPublic>
-        <Activity />
+        <SuggesFriends />
       </div>
     </div>
   );
 }
 
-export default Timeline;
+export default NewsFeed;

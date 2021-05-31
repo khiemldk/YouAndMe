@@ -5,6 +5,7 @@ import { CommonService } from 'api/CommonService';
 import { CommonApi } from 'api/CommonApi';
 import axios from 'axios';
 import './style.scss';
+import { useRouter } from 'next/router';
 
 const LoginForm = ({ submitData, form }) => {
   return (
@@ -287,9 +288,12 @@ const RegisterForm = ({ form, submitData }) => {
 const Login = () => {
   const [form] = Form.useForm();
   const [isRegister, setIsRegister] = useState(true)
+  const router = useRouter();
 
   const submitData = (values) => {
+    console.log(values)
     form.resetFields();
+    router.push("/timeline");
   }
 
   const handleRegister = () => {

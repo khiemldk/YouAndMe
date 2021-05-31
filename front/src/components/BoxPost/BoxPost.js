@@ -6,9 +6,9 @@ import './style.scss';
 const BoxPost = () => {
   return (
     <div className='grid box-post'>
-      <BoxImage>
-        <BoxComment />
-      </BoxImage>
+      <BoxImage />
+      <BoxImage />
+      <BoxImage />
     </div>
   );
 }

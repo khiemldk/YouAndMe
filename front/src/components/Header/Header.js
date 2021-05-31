@@ -71,7 +71,7 @@ const Header = () => {
   }
 
   return (
-    <div className={`grid__full-width header ${router.pathname === "/login" ? "header__customHeaderBg" : ""}`}>
+    <div className={`grid__full-width header ${router.pathname === "/" ? "header__customHeaderBg" : ""}`}>
       <div className="grid d-flex ">
         <div className="d-flex header__custom">
           <div className="d-flex header__custom--logo">

@@ -1,0 +1,26 @@
+@import "~styles/_mixins.scss";
+
+.sugges-friends {
+  &__item {
+    color: #8dc63f;
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    strong {
+      font-size: 1.4rem;
+      color: #27aae1;
+    }
+    div {
+      flex: 1;
+      border-bottom: 1px solid #f1f2f2;
+    }
+    p {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -5,7 +5,7 @@ import { Layout, TimeLine } from 'components'
 const timeline = ({ props }) => {
   return (
     <Layout>
-      <TimeLine />
+      <TimeLine {...props} />
     </Layout>
   );
 }
