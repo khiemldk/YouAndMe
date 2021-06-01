@@ -55,7 +55,8 @@
     "underscore": "^1.10.2",
     "universal-cookie": "^4.0.4",
     "url-loader": "^4.1.1",
-    "uuid": "^8.0.0"
+    "uuid": "^8.0.0",
+    "video-react": "^0.14.1"
   },
   "devDependencies": {
     "webpack-filter-warnings-plugin": "^1.2.1"

@@ -1,0 +1,9 @@
+@import "~styles/_mixins.scss";
+
+.time-line{
+  @include mobile {
+    &__mt {
+      margin-top: 220px;
+    }
+  }
+}

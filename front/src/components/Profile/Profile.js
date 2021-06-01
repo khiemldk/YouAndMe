@@ -34,7 +34,7 @@ const Profile = () => {
           </div>
           <div className="profile__mobile--menu">
             <div className="text-center">
-              <span className="ml-5 pr-5 text-black">Timeline</span>
+              <span className="ml-5 pr-5 text-black" >Timeline</span>
               <span className="pr-5 text-black">About</span>
               <span className="pr-5 text-black">Album</span>
               <span className="pr-5 text-black">Friends</span>
