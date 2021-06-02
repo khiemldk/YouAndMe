@@ -6,8 +6,8 @@ const Timeline = () => {
   return (
     <div className=''>
       <Profile />
-      <div className="grid d-md-flex time-line">
-        <div className="col-md-3 col-0 time-line__mt">
+      <div className="grid d-lg-flex time-line">
+        <div className="col-lg-3 col-0 time-line__mt">
         </div>
         <BoxPublic >
           <BoxPost isTimeline />

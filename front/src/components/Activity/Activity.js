@@ -31,7 +31,7 @@ const list = [
 
 const Activity = () => {
   return (
-    <div className='col-md-2 col-12 mt-5 activity'>
+    <div className='col-lg-2 col-12 mt-5 activity'>
       <h3>Khiem's activity</h3>
       <div className='activity__list'>
         {list.map((item, index) => (

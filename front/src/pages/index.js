@@ -1,6 +1,6 @@
 import { Layout, Login } from 'components'
 
-export default function Home({ props }) {
+export default function Home(props) {
   return (
     <Layout>
       <Login {...props} />

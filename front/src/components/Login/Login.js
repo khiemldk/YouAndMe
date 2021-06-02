@@ -285,13 +285,12 @@ const RegisterForm = ({ form, submitData }) => {
   );
 }
 
-const Login = () => {
+const Login = ({ pathName }) => {
   const [form] = Form.useForm();
   const [isRegister, setIsRegister] = useState(true)
   const router = useRouter();
 
   const submitData = (values) => {
-    console.log(values)
     form.resetFields();
     router.push("/timeline");
   }
@@ -312,7 +311,7 @@ const Login = () => {
               <p className="mb-lg-5">Come here? You and Me? Together ?</p>
             </div>
             <div className="login__learn-more">
-              <a>Learn More</a>
+              <a className="m-lg-0 m-auto">Learn More</a>
             </div>
           </div>
         </div>

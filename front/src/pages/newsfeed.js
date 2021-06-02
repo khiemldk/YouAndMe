@@ -2,7 +2,7 @@ import React from 'react';
 import { Layout, NewsFeed } from 'components'
 
 
-const newsfeed = ({ props }) => {
+const newsfeed = (props) => {
   return (
     <Layout>
       <NewsFeed {...props} />
@@ -10,4 +10,13 @@ const newsfeed = ({ props }) => {
   );
 }
 
+newsfeed.getInitialProps = async ({ query }) => {
+  const { slug } = query
+
+  return {
+
+    slug,
+    namespacesRequired: ['common'],
+  }
+}
 export default newsfeed;

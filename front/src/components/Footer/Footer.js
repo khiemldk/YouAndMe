@@ -16,7 +16,7 @@ import { BiLocationPlus } from "react-icons/bi";
 
 const CateItem = () => {
   return (
-    <div className="col-md-2">
+    <div className="col-lg-2">
       <h3>For individuals</h3>
       <div className="footer__list-cate">
         <a><p>Sign Up</p></a>
@@ -39,7 +39,7 @@ const Footer = () => {
           {/* <div className={`grid__full-width ${router.pathname === "/login" ? "d-none" : ""}`}> */}
           <div className="grid" >
             <div className="footer">
-              <div className="col-md-3">
+              <div className="col-lg-3">
                 <div className="footer__logo">
                   <img src="/88-512.webp" />
                   <h2 className="ml-3">You And Me</h2>
@@ -55,7 +55,7 @@ const Footer = () => {
               <CateItem />
               <CateItem />
               <CateItem />
-              <div className="col-md-3">
+              <div className="col-lg-3">
                 <h3>Contact us</h3>
                 <div className="footer__contact">
                   <div className="footer__contact--item">

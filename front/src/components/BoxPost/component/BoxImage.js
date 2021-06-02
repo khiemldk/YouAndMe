@@ -32,7 +32,7 @@ const BoxImage = ({ type, isTimeline }) => {
             <p className='mt-3'>Yesterday</p>
           </div>
           <div className='mt-3 pr-5 box-img__like'>
-            <span className="mr-md-5 mr-3"><AiOutlineLike size={16} /> 49 </span> <span><AiOutlineDislike size={16} /> 0 </span>
+            <span className="mr-lg-5 mr-3"><AiOutlineLike size={16} /> 49 </span> <span><AiOutlineDislike size={16} /> 0 </span>
           </div>
         </div>
 

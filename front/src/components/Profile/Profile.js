@@ -5,15 +5,15 @@ const Profile = () => {
   return (
     <div className="profile grid">
       <div className="profile__cover" style={{ background: 'url(http://placehold.it/1030x360) no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-        <div className="grid profile__option d-md-flex d-none">
-          <div className="col-md-3">
+        <div className="grid profile__option d-lg-flex d-none">
+          <div className="col-lg-3">
             <img src='/static/imgs/cr.jpg' className="profile__picture" />
             <div className="profile__name text-center ml-n4">
               <span>Khiêm Lê Đình<br /></span>
               <span>Developer</span>
             </div>
           </div>
-          <div className="col-md-9 d-flex justify-content-between">
+          <div className="col-lg-9 d-flex justify-content-between">
             <div className="profile__menu">
               <span className="pr-5 text-white">Timeline</span>
               <span className="pr-5 text-white">About</span>
@@ -26,7 +26,7 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        <div className="grid profile__mobile-option d-md-none d-flex">
+        <div className="grid profile__mobile-option d-lg-none d-flex">
           <div className="profile__mobile-info">
             <img src='/static/imgs/cr.jpg' />
             <p className="text-center name mt-3">Lê Đình Khiêm</p>

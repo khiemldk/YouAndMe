@@ -13,6 +13,11 @@ import BoxComment from 'components/BoxComment/BoxComment.js';
 import Input from 'components/common/Input/Input.js'
 import NewsFeed from 'components/NewsFeed/NewsFeed.js';
 import SuggesFriends from 'components/SuggesFriends/SuggesFriends.js';
+import MenuNews from 'components/NewsFeed/component/MenuNews.js';
+import BoxOnline from 'components/NewsFeed/component/BoxOnline.js';
+import BoxCard from 'components/NewsFeed/component/BoxCard.js';
+import BoxPeopleNear from 'components/NewsFeed/component/BoxPeopleNear.js'
+
 export {
   Header,
   Layout,
@@ -29,4 +34,8 @@ export {
   Input,
   NewsFeed,
   SuggesFriends,
+  MenuNews,
+  BoxOnline,
+  BoxCard,
+  BoxPeopleNear,
 }

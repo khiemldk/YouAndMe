@@ -27,7 +27,7 @@ const MenuItem = ({ text, listItem, index, onClickMenuItem, check }) => {
         />
       </p>
       {check[index] &&
-        <div ref={ClickItem} className="header__list-item d-flex d-md-block">
+        <div ref={ClickItem} className="header__list-item d-flex d-lg-block">
           <span>NewsFeed</span>
           <span>My Friends</span>
           <span>Chat Room</span>
@@ -87,7 +87,7 @@ const Header = () => {
           </div>
         </div>
         {/* ${showDisplay ? "clickBtn" : "d-block clickBtn"} */}
-        <div ref={clickBtn} className={`header__cate d-md-flex d-none ${showDisplay ? "d-block clickBtn" : "clickBtn"}`}>
+        <div ref={clickBtn} className={`header__cate d-lg-flex d-none ${showDisplay ? "d-block clickBtn" : "clickBtn"}`}>
           {list.map((item, index) => (
             <MenuItem
               text={item}
