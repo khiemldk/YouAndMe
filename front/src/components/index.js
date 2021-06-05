@@ -17,7 +17,9 @@ import MenuNews from 'components/NewsFeed/component/MenuNews.js';
 import BoxOnline from 'components/NewsFeed/component/BoxOnline.js';
 import BoxCard from 'components/NewsFeed/component/BoxCard.js';
 import BoxPeopleNear from 'components/NewsFeed/component/BoxPeopleNear.js'
-
+import BoxFriend from 'components/BoxFriend/BoxFriend.js'
+import ListNewsfeed from 'components/ListNewsfeed/ListNewsfeed.js';
+import BoxImage from 'components/BoxPost/component/BoxImage.js';
 export {
   Header,
   Layout,
@@ -37,5 +39,8 @@ export {
   MenuNews,
   BoxOnline,
   BoxCard,
+  BoxFriend,
   BoxPeopleNear,
+  ListNewsfeed,
+  BoxImage,
 }

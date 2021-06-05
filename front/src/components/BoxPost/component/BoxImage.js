@@ -2,7 +2,6 @@ import React from 'react';
 import './style.scss';
 import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
 import { BoxComment } from 'components';
-import { Player } from 'video-react';
 // 1 : image
 // 2 : video
 
@@ -20,7 +19,7 @@ const BoxImage = ({ type, isTimeline }) => {
       }
       {
         type === '2' &&
-        <video width="100%" controls>
+        <video width="100%" controls autoPlay>
           <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" type="video/mp4" />
         </video>
       }

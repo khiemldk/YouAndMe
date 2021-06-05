@@ -1,0 +1,35 @@
+@import "~styles/_mixins.scss";
+
+.box-friend {
+  .friend-item {
+    &__img {
+      border-radius: 4px;
+      width: 100%;
+      height: 100px;
+      position: relative;
+    }
+    img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 6px solid #fff;
+      position: absolute;
+      bottom: -35%;
+    }
+    &__info {
+    border-bottom: 1px solid #f0f0f0;
+    margin-top: 50px;
+      span {
+        font-size: 1.4rem;
+        color: #27aae1;
+        &:last-child {
+          color: #8dc63f;
+        }
+      }
+      p {
+        font-size: 1.2rem;
+
+      }
+    }
+  }
+}

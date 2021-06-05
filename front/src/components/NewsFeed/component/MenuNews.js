@@ -15,10 +15,30 @@ const MenuNews = () => {
 
         </a>
       </Link>
-      <p className="mt-4 pb-4"><BsPeople size={14} color="#ee2a7b" className="menu-news__icon mr-4" /> Friends </p>
-      <p className="mt-4 pb-4"><BsFillChatFill size={14} color="#f7941e" className="menu-news__icon mr-4" /> Messages </p>
-      <p className="mt-4 pb-4"><BsFillImageFill size={14} color="#1c75bc" className="menu-news__icon mr-4" /> Images </p>
-      <p className="mt-4 pb-4"><BsFillCameraVideoFill size={14} color="#9e1f63" className="menu-news__icon mr-4" /> Video </p>
+      <Link route="/newsfeed/friends">
+        <a>
+          <p className="mt-4 pb-4"><BsPeople size={14} color="#ee2a7b" className="menu-news__icon mr-4" /> Friends </p>
+        </a>
+      </Link>
+      <Link route="/newsfeed/messages">
+        <a>
+          <p className="mt-4 pb-4"><BsFillChatFill size={14} color="#f7941e" className="menu-news__icon mr-4" /> Messages </p>
+
+        </a>
+      </Link>
+      <Link route="/newsfeed/images">
+        <a>
+          <p className="mt-4 pb-4"><BsFillImageFill size={14} color="#1c75bc" className="menu-news__icon mr-4" /> Images </p>
+
+        </a>
+      </Link>
+      <Link route="/newsfeed/videos">
+        <a>
+          <p className="mt-4 pb-4"><BsFillCameraVideoFill size={14} color="#9e1f63" className="menu-news__icon mr-4" /> Video </p>
+
+        </a>
+      </Link>
+
     </div>
   );
 }

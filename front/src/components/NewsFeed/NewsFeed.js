@@ -1,9 +1,8 @@
-import { SuggesFriends, BoxPublic, BoxPost, MenuNews, BoxOnline, BoxCard, BoxPeopleNear } from 'components';
+import { SuggesFriends, BoxPublic, BoxPost, MenuNews, BoxOnline, BoxCard, BoxPeopleNear, BoxFriend, ListNewsfeed } from 'components';
 import React from 'react';
 import './style.scss';
 
 const NewsFeed = ({ slug }) => {
-  console.log(slug);
   return (
     <div className="pt-76">
       <div className="grid d-lg-flex newfeed">
@@ -18,6 +17,15 @@ const NewsFeed = ({ slug }) => {
           }
           {slug === "people-near" &&
             <BoxPeopleNear />
+          }
+          {slug === "friends" &&
+            <BoxFriend />
+          }
+          {slug === "images" &&
+            <ListNewsfeed type="1"/>
+          }
+          {slug === "videos" &&
+            <ListNewsfeed type="2"/>
           }
         </BoxPublic>
         <SuggesFriends />
