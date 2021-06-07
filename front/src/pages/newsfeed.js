@@ -11,10 +11,10 @@ const newsfeed = (props) => {
 }
 
 newsfeed.getInitialProps = async ({ query }) => {
-  const { slug } = query
+  const { slug, id } = query
 
   return {
-
+    id,
     slug,
     namespacesRequired: ['common'],
   }

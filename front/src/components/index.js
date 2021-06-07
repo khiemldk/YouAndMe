@@ -20,6 +20,11 @@ import BoxPeopleNear from 'components/NewsFeed/component/BoxPeopleNear.js'
 import BoxFriend from 'components/BoxFriend/BoxFriend.js'
 import ListNewsfeed from 'components/ListNewsfeed/ListNewsfeed.js';
 import BoxImage from 'components/BoxPost/component/BoxImage.js';
+import BoxMessage from 'components/BoxMessage/BoxMessage.js';
+import BoxAbout from 'components/BoxAbout/BoxAbout.js';
+import BoxAlbum from 'components/BoxAlbum/BoxAlbum.js';
+import BoxEdit from 'components/BoxEdit/BoxEdit.js';
+import BoxMenuEdit from 'components/BoxMenuEdit/BoxMenuEdit.js';
 export {
   Header,
   Layout,
@@ -43,4 +48,9 @@ export {
   BoxPeopleNear,
   ListNewsfeed,
   BoxImage,
+  BoxMessage,
+  BoxAbout,
+  BoxAlbum,
+  BoxEdit,
+  BoxMenuEdit,
 }

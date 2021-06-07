@@ -3,7 +3,7 @@ import './style.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faAngleDown, faListAlt } from '@fortawesome/fontawesome-free-solid';
 import { useRouter } from 'next/router';
-
+import { Link } from 'routers';
 const list = [
   "Home",
   "NewsFeed",
@@ -28,11 +28,31 @@ const MenuItem = ({ text, listItem, index, onClickMenuItem, check }) => {
       </p>
       {check[index] &&
         <div ref={ClickItem} className="header__list-item d-flex d-lg-block">
-          <span>NewsFeed</span>
-          <span>My Friends</span>
-          <span>Chat Room</span>
-          <span>Images</span>
-          <span>Videos</span>
+          <Link route="/newsfeed">
+            <a>
+              <span>NewsFeed</span>
+            </a>
+          </Link>
+          <Link route="/newsfeed">
+            <a>
+              <span>My Friends</span>
+            </a>
+          </Link>
+          <Link route="/newsfeed">
+            <a>
+              <span>Chat Room</span>
+            </a>
+          </Link>
+          <Link route="/newsfeed">
+            <a>
+              <span>Images</span>
+            </a>
+          </Link>
+          <Link route="/newsfeed">
+            <a>
+              <span>Videos</span>
+            </a>
+          </Link>
         </div>
       }
     </div>

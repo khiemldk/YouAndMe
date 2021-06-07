@@ -1,0 +1,23 @@
+@import "~styles/_mixins.scss";
+
+.box-about {
+  color: #6d6e71;
+  line-height: 2.4rem;
+  font-size: 1.3rem;
+
+  &__info, &__exp, &__location, &__favorite{
+    h2 {
+      color: #6d6e71;
+    }
+    border-bottom: 1px solid #f1f2f2;
+  }
+
+  &__exp {
+    span {
+      color: #27aae1;
+      font-size: 1.4rem;
+    }
+  }
+  
+  
+}

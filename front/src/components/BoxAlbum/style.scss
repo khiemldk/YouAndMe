@@ -1,0 +1,30 @@
+@import "~styles/_mixins.scss";
+
+.box-album {
+  height: auto;
+  &__item {
+    &::after {
+      content: "";
+      cursor: pointer;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      transition: all 1s ease 0s;
+      margin: 0 15px;
+    }
+    &:hover::after {
+      background-color: rgba(0,0,0, 0.4);
+    }
+    img {
+      width: 100%;
+      max-height: 170px;
+    }
+  }
+  @include mobile {
+    img {
+      max-height: 110px;
+    }
+  }
+}

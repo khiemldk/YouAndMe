@@ -3,12 +3,36 @@ import { BoxImage } from 'components'
 import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
 import './style.scss'
 import { Modal } from 'antd';
-const ItemNews = ({ type, onClick }) => {
+
+const list = [
+  {
+    image: "/static/imgs/1.jpeg"
+  },
+  {
+    image: "/static/imgs/Alo.jpg"
+  },
+  {
+    image: "/static/imgs/anh1.png"
+  },
+  {
+    image: "/static/imgs/cr.jpg"
+  },
+  {
+    image: "/static/imgs/khang1.png"
+  },
+]
+
+const ItemNews = ({ type, onClick, item }) => {
+
+  const submitData = () => {
+    onClick(item);
+  }
+
   return (
     <div className="item-news col-md-6 col-12 mb-5" >
-      <div className="item-news__img" onClick={onClick}>
+      <div className="item-news__img" onClick={submitData}>
         {type === "1" &&
-          <img src="http://placehold.it/800x800" />
+          <img src={item.image} />
         }
         {type === "2" &&
           <video width="100%" controls>
@@ -32,18 +56,20 @@ const ItemNews = ({ type, onClick }) => {
   );
 }
 
-const DetailPost = ({ isModalVisible, handleCancel, type }) => {
+const DetailPost = ({ isModalVisible, handleCancel, type, item }) => {
   return (
-    <Modal visible={isModalVisible} onCancel={handleCancel} width={1000} footer={null} bodyStyle={{padding: 0}} closable={false}>
-      <BoxImage type={type} />
+    <Modal visible={isModalVisible} onCancel={handleCancel} width={1000} footer={null} bodyStyle={{ padding: 0 }} closable={false}>
+      <BoxImage type={type} item={item} />
     </Modal>
   );
 }
 
 const ListNewsfeed = ({ type }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [item, setItem] = useState({})
 
-  const showModal = () => {
+  const showModal = (value) => {
+    setItem(value)
     setIsModalVisible(true);
   };
 
@@ -56,16 +82,13 @@ const ListNewsfeed = ({ type }) => {
   };
   return (
     <div className="list-newsfeed d-flex flex-wrap">
-      <ItemNews type={type} onClick={showModal} />
-      <ItemNews type={type} onClick={showModal} />
-      <ItemNews type={type} onClick={showModal} />
-      <ItemNews type={type} onClick={showModal} />
-      <ItemNews type={type} onClick={showModal} />
-      <ItemNews type={type} onClick={showModal} />
-      <ItemNews type={type} onClick={showModal} />
-      <ItemNews type={type} onClick={showModal} />
+      {list.map((item, index) =>
+      (
+        <ItemNews type={type} onClick={showModal} item={item} key={index} />
+      ))
+      }
 
-      <DetailPost isModalVisible={isModalVisible} handleCancel={handleCancel} type={type} />
+      <DetailPost isModalVisible={isModalVisible} handleCancel={handleCancel} type={type} item={item} />
     </div>
   );
 }

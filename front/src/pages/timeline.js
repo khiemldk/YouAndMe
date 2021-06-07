@@ -10,4 +10,13 @@ const timeline = (props) => {
   );
 }
 
+timeline.getInitialProps = async ({ query }) => {
+  const { slug } = query
+
+  return {
+    slug,
+    namespacesRequired: ['common'],
+  }
+}
+
 export default timeline;

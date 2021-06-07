@@ -1,0 +1,19 @@
+@import "~styles/_mixins.scss";
+
+.box-menu-edit {
+  margin-top: 110px;
+  a {
+    text-decoration: none;
+  }
+  p {
+    font-size: 1.4rem;
+    border-bottom: 1px solid #f1f2f2;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  .active-edit {
+    border-left: 2px solid #8dc63f;
+    color: #8dc63f;
+  }
+}

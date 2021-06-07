@@ -5,7 +5,7 @@ import { BoxComment } from 'components';
 // 1 : image
 // 2 : video
 
-const BoxImage = ({ type, isTimeline }) => {
+const BoxImage = ({ type, isTimeline, item }) => {
   return (
     <div className={`grid box-img pb-5 mt-5 ${isTimeline ? "box-img-timeline" : ''}`}>
       {isTimeline &&
@@ -15,7 +15,7 @@ const BoxImage = ({ type, isTimeline }) => {
         </div>
       }
       {type === "1" &&
-        <img src='http://placehold.it/1920x1280' />
+        <img src={item ? item.image || item : 'http://placehold.it/1920x1280'} />
       }
       {
         type === '2' &&

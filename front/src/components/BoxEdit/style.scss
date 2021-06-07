@@ -1,0 +1,16 @@
+@import "~styles/_mixins.scss";
+
+.box-edit {
+  &__basic-info {
+    h2 {
+      color: #6d6e71;
+      line-height: 24px;
+      border-bottom: 1px solid #f1f2f2;
+      font-size: 1.8rem;
+    }
+    p {
+      font-size:1.3rem;
+      border-bottom: 1px solid #f1f2f2;
+    }
+  }
+}
