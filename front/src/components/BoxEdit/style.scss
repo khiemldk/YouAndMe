@@ -1,7 +1,7 @@
 @import "~styles/_mixins.scss";
 
 .box-edit {
-  &__basic-info {
+  &__basic-info, &__education {
     h2 {
       color: #6d6e71;
       line-height: 24px;
@@ -11,6 +11,32 @@
     p {
       font-size:1.3rem;
       border-bottom: 1px solid #f1f2f2;
+    }
+  }
+  &__form {
+    strong {
+      color: #6d6e71;
+    }
+    input {
+      color: #6d6e71;
+      font-size: 1.4rem;
+      border: 1px solid #f1f2f2;
+      border-radius: 4px;
+    }
+    &--select {
+      > div {
+        border: 1px solid #f1f2f2 !important;
+        border-radius: 4px !important;
+      }
+    }
+    label {
+      font-size: 1.2rem;
+    }
+    .customClass {
+      width: 100%;
+    }
+    textarea {
+      border-radius: 4px;
     }
   }
 }

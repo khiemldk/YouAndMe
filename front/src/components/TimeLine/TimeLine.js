@@ -2,7 +2,7 @@ import { Activity, BoxPublic, Profile, BoxPost, BoxAbout, BoxAlbum, BoxFriend, B
 import React from 'react';
 import './style.scss'
 
-const Timeline = ({ slug }) => {
+const Timeline = ({ slug, action }) => {
   return (
     <div className=''>
       <Profile />
@@ -29,7 +29,7 @@ const Timeline = ({ slug }) => {
           </div>
         }
         {slug === "info" &&
-          <BoxEdit />
+          <BoxEdit action={action} />
         }
         <Activity />
       </div>

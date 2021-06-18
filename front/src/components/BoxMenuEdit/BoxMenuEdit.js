@@ -10,11 +10,15 @@ const BoxMenuEdit = () => {
       <Link route="/timeline/info?action=basicinfo">
         <a>
           <p className="pb-4 mt-4 pl-4 pr-4 active-edit"><BsInfoCircle size={14} className="mr-4" /> Basic Information</p>
-
         </a>
       </Link>
 
-      <p className="pb-4 mt-4 pl-4 pr-4"><BsBriefcase size={14} className="mr-4" /> Education and Work</p>
+      <Link route="/timeline/info?action=educationandwork">
+        <a>
+          <p className="pb-4 mt-4 pl-4 pr-4"><BsBriefcase size={14} className="mr-4" /> Education and Work</p>
+        </a>
+      </Link>
+
       <p className="pb-4 mt-4 pl-4 pr-4"><AiOutlineHeart size={14} className="mr-4" /> My Interests</p>
       <p className="pb-4 mt-4 pl-4 pr-4"><AiOutlineSetting size={14} className="mr-4" /> Account Settings</p>
       <p className="pb-4 mt-4 pl-4 pr-4"><AiOutlineLock size={14} className="mr-4" /> Change Password</p>

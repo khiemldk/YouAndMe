@@ -1,34 +1,62 @@
 package com.youandme.controller;
 
 import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.youandme.entities.Friend;
 import com.youandme.entities.User;
-import com.youandme.service.FriendService;
 import com.youandme.service.UserService;
 
-@RestController
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class BaseController {
-	@Autowired
-	private UserService userService;
+	@Autowired UserService userService;
 	
-	@Autowired
-	private FriendService friendService;
+	// check valid
+	protected boolean checkPhoneNumber(String phoneNumber) {
+		String regex = "(8488|8491|8494|8483|8484|8485|8481|8482)+([0-9]{7})\\b";
+		if (phoneNumber.isEmpty()) {
+			return true;
+		} else if (phoneNumber.length() == 11) {
+			return Pattern.matches(regex, phoneNumber);
+		}
+		return false;
+	}
+
+	protected boolean checkEmail(String email) {
+		String regex = "^[a-zA-Z0-9_+&*-]+(?:\\." + "[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-z"
+				+ "A-Z]{2,7}$";
+		if (email == null)
+			return false;
+		return Pattern.matches(regex, email);
+	}
 	
-	@GetMapping("/test")
-	@ResponseBody
+	// user common
+	public User findById(int id) {
+		return userService.findById(id);
+	}
+	
 	public List<User> getAllUser(){
 		return userService.getAllUser();
 	}
 	
-	@GetMapping("/test1")
-	@ResponseBody
-	public List<Friend> getAllFriend(){
-		return friendService.getAllFriend();
+	public List<User> findByUserName(String name, Object value){
+		return userService.findByProp(name, value);
 	}
+	
+	public List<User> checkLogin(Map<String, Object> maps)  {
+		return userService.findByProps(maps);
+	}
+	
+	public void insertNewUser(User user) {
+		userService.insertUser(user);
+	}
+	
+	public void UpdateUserInfo(User user) {
+		userService.updateUserInfo(user);
+	}
+	
 }

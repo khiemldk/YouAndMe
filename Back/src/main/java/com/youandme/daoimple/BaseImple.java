@@ -71,10 +71,10 @@ public class BaseImple<E> implements BaseDAO<E> {
 		query.
 			append("from ").
 			append(getGenericName()).
-			append(" as model where model.ACTIVEFLAG = 1 and model.").
+			append(" as model where model.activeFlag = 1 and model.").
 			append(name).
-			append(" = ").
-			append(value);
+			append(" = '").
+			append(value).append("'");
 		;
 		Session ss  = sessionFactory.getCurrentSession();
 		Query<E> result = ss.createQuery(query.toString());
@@ -87,15 +87,17 @@ public class BaseImple<E> implements BaseDAO<E> {
 		query.
 			append("from ").
 			append(getGenericName()).
-			append(" as model where model.ACTIVEFLAG = 1 and ");
+			append(" as model where model.activeFlag = 1 and ");
 		for(String key : maps.keySet()) {
 			if (maps.get(key) != null && maps.get(key) != null) {
-				query.append(key).append(" = ").append(maps.get(key));
-				query.append("and ");
+				query.append(key).append(" = '").append(maps.get(key)).append("'");
+				query.append(" and ");
 			}
 		}
-		query.delete(query.length()-4, query.length());
-		return null;
+		query.delete(query.length()-5, query.length());
+		Session ss  = sessionFactory.getCurrentSession();
+		Query<E> result = ss.createQuery(query.toString());
+		return result.list();
 	}
 
 	@Override

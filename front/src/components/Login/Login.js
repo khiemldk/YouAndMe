@@ -6,7 +6,7 @@ import { CommonApi } from 'api/CommonApi';
 import axios from 'axios';
 import './style.scss';
 import { useRouter } from 'next/router';
-
+import { UserService } from '../../api/UserService';
 const LoginForm = ({ submitData, form }) => {
   return (
     <div className="login__form-login text-center text-lg-left">
@@ -15,7 +15,7 @@ const LoginForm = ({ submitData, form }) => {
       <Form name="login" form={form} className="login__form--content" onFinish={submitData}>
         <Form.Item
           className="login__item mb-lg-4"
-          name="account"
+          name="email"
           rules={[
             {
               required: true,
@@ -44,9 +44,9 @@ const LoginForm = ({ submitData, form }) => {
         </Form.Item>
 
         <span className="d-block mb-lg-3">Forgot Password</span>
-        <Form.Item>
-          <Button type="submit" text="Login Now" />
-        </Form.Item>
+        {/* <Form.Item> */}
+        <Button type="submit" text="Login Now" />
+        {/* </Form.Item> */}
       </Form>
     </div>
   );
@@ -54,9 +54,6 @@ const LoginForm = ({ submitData, form }) => {
 
 const RegisterForm = ({ form, submitData }) => {
 
-  const days = useRef([...new Array(31).keys()]);
-  const months = useRef(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);
-  const years = useRef([...new Array(50).keys()]);
   const [country, setCountry] = useState([]);
   const { Option } = Select;
 
@@ -181,7 +178,7 @@ const RegisterForm = ({ form, submitData }) => {
               >
                 <Select placeholder="Day">
                   {
-                    days.current.map(item => (
+                    CommonApi.days.map(item => (
                       <Option key={item} value={item + 1}>{item + 1}</Option>
                     ))
                   }
@@ -192,7 +189,7 @@ const RegisterForm = ({ form, submitData }) => {
               <Form.Item name="month" >
                 <Select placeholder="Month">
                   {
-                    months.current.map((item, index) => (
+                    CommonApi.months.map((item, index) => (
                       <Option value={index + 1}>{item}</Option>
                     ))
                   }
@@ -211,7 +208,7 @@ const RegisterForm = ({ form, submitData }) => {
               >
                 <Select placeholder="Year">
                   {
-                    years.current.map((item) => (
+                    CommonApi.years.map((item) => (
                       <Option value={item + 1980}>{item + 1980}</Option>
                     ))
                   }
@@ -287,12 +284,23 @@ const RegisterForm = ({ form, submitData }) => {
 
 const Login = ({ pathName }) => {
   const [form] = Form.useForm();
-  const [isRegister, setIsRegister] = useState(true)
+  const [isRegister, setIsRegister] = useState(false)
   const router = useRouter();
 
   const submitData = (values) => {
+    checkLogin(values)
     form.resetFields();
-    router.push("/timeline");
+
+  }
+
+  const checkLogin = (values) => {
+    const data = {
+      ...values
+    }
+    UserService.checkAccount(data, res => {
+      if (res.errorCode === 0)
+        router.push("/timeline");
+    })
   }
 
   const handleRegister = () => {
