@@ -1,5 +1,6 @@
 import React from 'react';
 import { BsPersonPlusFill } from "react-icons/bs";
+import { Link } from 'routers';
 import './style.scss';
 
 const BoxCard = () => {
@@ -7,10 +8,18 @@ const BoxCard = () => {
     <div className="box-card d-flex mt-5 grid">
       <img src="http://placehold.it/300x300" />
       <div className="box-card__infor m-auto">
-        <p>Khiem Le Dinh</p>
-        <p><BsPersonPlusFill size={14} />1299 follower</p>
+        <Link route="/timeline?id=12">
+          <a>
+            <p>Khiem Le Dinh</p>
+          </a>
+        </Link>
+        <Link route={`/timeline/friends?id="123"`}>
+          <a>
+            <p><BsPersonPlusFill size={14} />1299 follower</p>
+          </a>
+        </Link>
       </div>
-    </div>
+    </div >
   );
 }
 

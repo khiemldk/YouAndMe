@@ -20,13 +20,13 @@ public class UserRole {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
-	private int id;
+	private Integer id;
 	
 	@Column(name = "USERID")
-	private int userId;
+	private Integer userId;
 
 	@Column(name = "ROLEID")
-	private int roleId;
+	private Integer roleId;
 	
 	@Column(name = "CREATEDATE")
 	private Date createDate;

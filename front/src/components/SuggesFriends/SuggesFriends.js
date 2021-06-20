@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'routers';
 import './style.scss';
 
 const SuggesFriends = () => {
@@ -8,7 +9,11 @@ const SuggesFriends = () => {
       <div className="sugges-friends__item d-flex mt-4">
         <img src="http://placehold.it/300x300" className="mr-4" />
         <div>
-          <p ><strong>Khanh Chi</strong></p>
+          <Link route="/timeline?id=12">
+            <a>
+              <p ><strong>Khanh Chi</strong></p>
+            </a>
+          </Link>
           <p >Add friend</p>
         </div>
       </div>

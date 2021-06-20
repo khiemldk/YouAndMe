@@ -2,7 +2,7 @@ import { Activity, BoxPublic, Profile, BoxPost, BoxAbout, BoxAlbum, BoxFriend, B
 import React from 'react';
 import './style.scss'
 
-const Timeline = ({ slug, action }) => {
+const Timeline = ({ slug, action, id }) => {
   return (
     <div className=''>
       <Profile />

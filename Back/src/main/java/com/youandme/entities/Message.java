@@ -20,13 +20,13 @@ public class Message {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
-	private int id;
+	private Integer id;
 	
 	@Column(name = "USERID")
-	private int userId;
+	private Integer userId;
 	
 	@Column(name = "USERTALKID")
-	private int userTalkId;
+	private Integer userTalkId;
 	
 	@Column(name = "CONTENT")
 	private String content;

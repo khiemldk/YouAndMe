@@ -6,6 +6,14 @@
   &__cover {
     height: 360px;
   }
+  a {
+    &:hover{
+      text-decoration: none;
+      span {
+        color: #27aae1!important;
+      }
+    }
+  }
   &__picture {
     position: absolute;
     width: 200px;

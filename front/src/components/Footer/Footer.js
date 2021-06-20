@@ -34,11 +34,11 @@ const Footer = () => {
   const router = useRouter();
   return (
     <div>
-      { router.pathname !== "/" &&
+      {router.pathname !== "/" &&
         < div className="grid__full-width" >
           {/* <div className={`grid__full-width ${router.pathname === "/login" ? "d-none" : ""}`}> */}
           <div className="grid" >
-            <div className="footer">
+            <div className="footer d-flex flex-lg-row flex-column">
               <div className="col-lg-3">
                 <div className="footer__logo">
                   <img src="/88-512.webp" />

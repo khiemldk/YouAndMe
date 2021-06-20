@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button } from 'components';
+import { Link } from 'routers';
 import './style.scss'
+
 const Profile = () => {
   return (
     <div className="profile grid">
@@ -15,10 +17,26 @@ const Profile = () => {
           </div>
           <div className="col-lg-9 d-flex justify-content-between">
             <div className="profile__menu">
-              <span className="pr-5 text-white">Timeline</span>
-              <span className="pr-5 text-white">About</span>
-              <span className="pr-5 text-white">Album</span>
-              <span className="pr-5 text-white">Friends</span>
+              <Link route="/timeline">
+                <a>
+                  <span className="pr-5 text-white">Timeline</span>
+                </a>
+              </Link>
+              <Link route="/timeline/about">
+                <a>
+                  <span className="pr-5 text-white">About</span>
+                </a>
+              </Link>
+              <Link route="/timeline/album">
+                <a>
+                  <span className="pr-5 text-white">Album</span>
+                </a>
+              </Link>
+              <Link route="/timeline/friends">
+                <a>
+                  <span className="pr-5 text-white">Friends</span>
+                </a>
+              </Link>
             </div>
             <div className="profile__follow-me">
               <span className="pr-4 text-white">1299 Following</span>

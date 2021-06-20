@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.scss'
 import { BsCheckCircle, BsBook, BsBriefcase } from "react-icons/bs";
-import { Form, Input, Radio, Select, Checkbox } from 'antd';
+import { Form, Input, Radio, Select, Checkbox, Switch } from 'antd';
 import { Button } from 'components';
 import { CommonApi } from 'api/CommonApi';
+import { AiOutlineHeart, AiOutlineSetting, AiOutlineLock } from "react-icons/ai";
 
 const BasicInfo = () => {
   const { Option } = Select;
@@ -189,6 +190,141 @@ const EducationAndWork = () => {
   );
 }
 
+const BoxInteres = () => {
+  return (
+    <div className="box-edit__interes mt-5">
+      <h2 className="pb-4"><AiOutlineHeart size={20} color="#27aae1" className="mr-4" />Interest</h2>
+      <p className="mt-4 pb-4">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate</p>
+      <div className="box-edit__interes--item mt-4">
+        <Button type="submit" text="Bycircle" classBtn="customInteres" />
+        <Button type="submit" text="Photograph" classBtn="customInteres" />
+        <Button type="submit" text="Listen to music" classBtn="customInteres" />
+        <Button type="submit" text="Shoping" classBtn="customInteres" />
+        <Button type="submit" text="Eating" classBtn="customInteres" />
+      </div>
+      <strong>City/Town</strong>
+      <div className="d-block d-lg-flex justify-content-between">
+        <Input placeholder="Your Interes" className="col-12 col-lg-8 mb-3 mt-2" /> <Button type="submit" text="Add" classBtn="mt-2 col-lg-3 col-12 mb-3" />
+      </div>
+    </div>
+  );
+}
+
+const BoxSettings = ({ checked }) => {
+  const [isCheckFollow, setIsCheckFollow] = useState(checked);
+  const [isCheckNoti, setIsCheckNoti] = useState(checked);
+  const [isCheckMessage, setIsCheckMessage] = useState(checked);
+  const [isCheckTag, setIsCheckTag] = useState(checked);
+  const [isCheckSound, setIsCheckSound] = useState(checked);
+
+  const handleFollow = () => {
+    setIsCheckFollow(!isCheckFollow)
+  }
+
+  const handleNoti = () => {
+    setIsCheckNoti(!isCheckNoti)
+  }
+
+  const handleMessage = () => {
+    setIsCheckMessage(!isCheckMessage)
+  }
+
+  const handleTag = () => {
+    setIsCheckTag(!isCheckTag)
+  }
+
+  const handleSound = () => {
+    setIsCheckSound(!isCheckSound)
+  }
+  return (
+    <div className="box-edit__settings mt-5">
+      <h2 className="pb-4"><AiOutlineSetting size={20} color="#27aae1" className="mr-4" />Interest</h2>
+      <p className="mt-4 pb-4">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate</p>
+      <div className="pb-4 pt-3 box-edit__settings--item d-flex justify-content-between align-items-center">
+        <div>
+          <strong>Enale follow me</strong><br />
+          <span>Enable this if you want people to follow you</span>
+        </div>
+        <Switch className={!isCheckFollow ? "customSwitch" : ""} onChange={(handleFollow)} />
+      </div>
+      <div className="pb-4 pt-3 box-edit__settings--item d-flex justify-content-between align-items-center">
+        <div>
+          <strong>Send me notifications</strong><br />
+          <span>Send me notification emails my friends like, share or message me</span>
+        </div>
+        <Switch className={!isCheckNoti ? "customSwitch" : ""} onChange={(handleNoti)} />
+      </div>
+      <div className="pb-4 pt-3 box-edit__settings--item d-flex justify-content-between align-items-center">
+        <div>
+          <strong>Text messages</strong><br />
+          <span>Send me messages to my cell phone</span>
+        </div>
+        <Switch className={!isCheckMessage ? "customSwitch" : ""} onChange={(handleMessage)} />
+      </div>
+      <div className="pb-4 pt-3 box-edit__settings--item d-flex justify-content-between align-items-center">
+        <div>
+          <strong>Enable tagging</strong><br />
+          <span>Enable my friends to tag me on their posts</span>
+        </div>
+        <Switch className={!isCheckTag ? "customSwitch" : ""} onChange={(handleTag)} />
+      </div>
+      <div className="pb-4 pt-3 box-edit__settings--item d-flex justify-content-between align-items-center">
+        <div>
+          <strong>Enable sound</strong><br />
+          <span>You'll hear notification sound when someone sends you a private message</span>
+        </div>
+        <Switch className={!isCheckSound ? "customSwitch" : ""} onChange={(handleSound)} />
+      </div>
+    </div>
+  );
+}
+
+const BoxChangePassword = () => {
+  return (
+    <div className="box-edit__changepassword mt-5">
+      <h2 className="pb-4"><AiOutlineLock size={20} color="#27aae1" className="mr-4" />Change Password</h2>
+      <p className="mt-4 pb-4">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate</p>
+      <Form name="edit" className="box-edit__form " >
+        <strong>Old Password</strong>
+        <Form.Item name="password" className="mb-3">
+          <Input.Password className="mt-2" />
+        </Form.Item>
+        <div className="d-flex">
+          <div className="col-6 pl-0">
+            <strong>New Password</strong>
+            <Form.Item name="newPassword" className="mb-3">
+              <Input.Password className="mt-2" />
+            </Form.Item>
+          </div>
+          <div className="col-6 pr-0">
+            <strong>Confirm Password</strong>
+            <Form.Item name="confirmPassword" className="mb-3"
+              dependencies={['newPassword']}
+              rules={[
+                ({ getFieldValue }) => ({
+                  validator(_, value) {
+                    if (!value || getFieldValue('newPassword') === value) {
+                      return Promise.resolve();
+                    }
+                    return Promise.reject(new Error('Confirm password is not correctly, Enter Again'));
+                  },
+                }),
+              ]}
+            >
+              <Input.Password className="mt-2" />
+            </Form.Item>
+          </div>
+        </div>
+        <a >Forgot Password</a>
+        <Form.Item className="mt-3">
+          <Button type="submit" text="Update Password" classBtn="customClass" />
+        </Form.Item>
+      </Form>
+    </div>
+  );
+}
+
+
 const BoxEdit = ({ action }) => {
   return (
     <div className="box-edit col-lg-7 col-12">
@@ -197,6 +333,15 @@ const BoxEdit = ({ action }) => {
       }
       {action === "educationandwork" &&
         <EducationAndWork />
+      }
+      {action === "interest" &&
+        <BoxInteres />
+      }
+      {action === "settings" &&
+        <BoxSettings checked />
+      }
+      {action === "changepassword" &&
+        <BoxChangePassword />
       }
     </div>
   );

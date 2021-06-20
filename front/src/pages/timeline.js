@@ -11,11 +11,12 @@ const timeline = (props) => {
 }
 
 timeline.getInitialProps = async ({ query }) => {
-  const { slug, action } = query
+  const { slug, action, id } = query
 
   return {
     slug,
     action,
+    id,
     namespacesRequired: ['common'],
   }
 }

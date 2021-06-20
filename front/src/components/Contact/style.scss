@@ -1,0 +1,30 @@
+@import "~styles/_mixins.scss";
+.contact {
+  background-color: #e0e0e0;
+  &__contents {
+    border-radius: 6px;
+    width: 70%;
+    background-color: #fff;
+    .prefixInput {
+      color: #888;
+    }
+    strong {
+      font-size: 1.4rem;
+    }
+    input {
+      border-radius: 4px;
+      font-size: 1.2rem;
+    }
+    .social-network-icon {
+      border: 1px solid #f1f2f2;
+      margin-right:6px;
+      padding: 6px;
+      border-radius: 3px;
+    }
+  
+  }
+  
+  .customClass {
+
+  }
+}

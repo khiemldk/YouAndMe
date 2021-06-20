@@ -26,7 +26,7 @@ public class BaseImple<E> implements BaseDAO<E> {
 	@Override
 	public List<E> getAll() {
 		StringBuilder query = new StringBuilder("");
-		query.append("from ").append(getGenericName());
+		query.append("from ").append(getGenericName()).append(" as model where model.activeFlag = 1");
 		Session ss = sessionFactory.getCurrentSession();
 		Query<E> res = ss.createQuery(query.toString());
 		return res.list();
@@ -77,6 +77,7 @@ public class BaseImple<E> implements BaseDAO<E> {
 			append(value).append("'");
 		;
 		Session ss  = sessionFactory.getCurrentSession();
+		
 		Query<E> result = ss.createQuery(query.toString());
 		return result.list();
 	}
@@ -94,6 +95,7 @@ public class BaseImple<E> implements BaseDAO<E> {
 				query.append(" and ");
 			}
 		}
+		
 		query.delete(query.length()-5, query.length());
 		Session ss  = sessionFactory.getCurrentSession();
 		Query<E> result = ss.createQuery(query.toString());

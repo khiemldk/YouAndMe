@@ -20,13 +20,13 @@ public class Tag {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
-	private int id;
+	private Integer id;
 	
 	@Column(name = "USERID")
-	private int userId;
+	private Integer userId;
 
 	@Column(name = "POSTID")
-	private int postId;
+	private Integer postId;
 	
 	@Column(name = "ISADMIN")
 	private boolean isAdmin;

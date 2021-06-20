@@ -21,13 +21,13 @@ public class UserTalk {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
-	private int id;
+	private Integer id;
 	
 	@Column(name = "USERID")
-	private int userId;
+	private Integer userId;
 	
 	@Column(name = "TALKID")
-	private int talkId;
+	private Integer talkId;
 	
 	@Column(name = "NICKNAME")
 	private String nickName;

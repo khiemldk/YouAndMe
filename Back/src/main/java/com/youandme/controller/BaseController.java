@@ -1,12 +1,22 @@
 package com.youandme.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
+import com.youandme.dto.ActivityDTO;
+import com.youandme.entities.Activity;
+import com.youandme.entities.Friend;
 import com.youandme.entities.User;
+import com.youandme.service.ActivityService;
+import com.youandme.service.FriendService;
 import com.youandme.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -14,6 +24,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class BaseController {
 	@Autowired UserService userService;
+	@Autowired ActivityService activityService;
+	@Autowired FriendService friendService;
 	
 	// check valid
 	protected boolean checkPhoneNumber(String phoneNumber) {
@@ -35,7 +47,7 @@ public class BaseController {
 	}
 	
 	// user common
-	public User findById(int id) {
+	public User findById(Integer id) {
 		return userService.findById(id);
 	}
 	
@@ -58,5 +70,37 @@ public class BaseController {
 	public void UpdateUserInfo(User user) {
 		userService.updateUserInfo(user);
 	}
+	
+	
+	// activity
+	public List<Activity> getAllActivity(String name, Object value){
+		return activityService.getAllActivity(name, value);
+	}
+	
+	public ActivityDTO convertActivityDTO(Activity activity) {
+		return ActivityDTO.builder()
+			.type(activity.getType())
+			.createDate(activity.getCreateDate())
+			.build();
+	}
+	
+	
+	// Friend
+	public List<Friend> getAllFriends() {
+		return friendService.getAllFriend();
+	}
+	
+	
+//	_____________________________________________________________________________________________
+	
+	 protected <T> Page<T> setUpPage(List<T> data, int pageSize, int pageNumber) {
+	        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+	        int start = (int) pageable.getOffset(); // offset = pageSize * pageNumber
+	        int end = Math.min((start + pageable.getPageSize()), data.size());
+	        if (start < end) {
+	            return new PageImpl<>(data.subList(start, end), pageable, data.size());
+	        } else
+	            return new PageImpl<>(new ArrayList<>(), pageable, data.size());
+	    }
 	
 }

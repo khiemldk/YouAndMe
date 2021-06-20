@@ -15,10 +15,10 @@ public class Friend {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
-	private int id;
+	private Integer id;
 
 	@Column(name = "USERID")
-	private int userId;
+	private Integer userId;
 
 	@Column(name = "ISFOLLOW")
 	private boolean isFollow;
@@ -36,7 +36,7 @@ public class Friend {
 	private boolean activeFlag;
 
 	@ManyToOne
-	@JsonIgnore
+//	@JsonIgnore
 	@JoinColumn(name = "USERID", referencedColumnName = "ID", insertable = false, updatable = false)
 	private User user;
 }

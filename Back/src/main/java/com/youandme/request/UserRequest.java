@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserRequest extends BaseRequest{
-	private int Id;
+	private Integer Id;
 	private String firstName;
 	private String lastName;
 	private String phoneNumber;
@@ -31,7 +31,7 @@ public class UserRequest extends BaseRequest{
 	private String pass;
 	
 	public UserRequest(
-		@JsonProperty("Id") int id,
+		@JsonProperty("Id") Integer id,
 		@JsonProperty("firstName") String firstName,
 		@JsonProperty("lastName") String lastName,
 		@JsonProperty("phoneNumber") String phoneNumber,

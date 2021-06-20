@@ -25,6 +25,8 @@ import BoxAbout from 'components/BoxAbout/BoxAbout.js';
 import BoxAlbum from 'components/BoxAlbum/BoxAlbum.js';
 import BoxEdit from 'components/BoxEdit/BoxEdit.js';
 import BoxMenuEdit from 'components/BoxMenuEdit/BoxMenuEdit.js';
+import Contact from 'components/Contact/Contact.js';
+
 export {
   Header,
   Layout,
@@ -53,4 +55,5 @@ export {
   BoxAlbum,
   BoxEdit,
   BoxMenuEdit,
+  Contact
 }
