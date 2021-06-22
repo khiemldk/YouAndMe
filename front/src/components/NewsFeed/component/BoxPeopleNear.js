@@ -6,7 +6,7 @@ const PeopleNearItem = () => {
   return (
     <div className="people-near__item d-flex flex-lg-row flex-column justify-content-between pb-4 mr-4 ml-4 mb-5">
       <div className="people-near__info d-flex m-lg-0 m-auto">
-        <img src="http://placehold.it/300x300" />
+        <img src="/static/imgs/300x300.png" />
         <div className="ml-4">
           <p className="people-near__info--name"><strong>Hong Nhan</strong></p>
           <p className="people-near__info--job">Student</p>

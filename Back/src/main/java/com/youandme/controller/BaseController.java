@@ -12,6 +12,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
 import com.youandme.dto.ActivityDTO;
+import com.youandme.dto.FriendsDTO;
 import com.youandme.entities.Activity;
 import com.youandme.entities.Friend;
 import com.youandme.entities.User;
@@ -86,10 +87,19 @@ public class BaseController {
 	
 	
 	// Friend
-	public List<Friend> getAllFriends() {
-		return friendService.getAllFriend();
+	public List<Friend> getAllFriends(String name, Object value) {
+		return friendService.getAllFriend(name, value);
 	}
 	
+	public FriendsDTO convertFriendsDTO(User user) {
+		return FriendsDTO.builder()
+				.firstName(user.getFirstName())
+				.lastName(user.getLastName())
+				.major(user.getMajor())
+				.avatar(user.getAvatar())
+				.coverPicture(user.getCoverPicture())
+				.build();
+	}
 	
 //	_____________________________________________________________________________________________
 	

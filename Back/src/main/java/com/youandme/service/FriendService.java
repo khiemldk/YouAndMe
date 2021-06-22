@@ -14,7 +14,7 @@ public class FriendService {
 	@Autowired
 	private FriendDAO<Friend> friendDAO;
 	
-	public List<Friend> getAllFriend(){
-		return friendDAO.getAll();
+	public List<Friend> getAllFriend(String name, Object value){
+		return friendDAO.findByProp(name, value);
 	}
 }

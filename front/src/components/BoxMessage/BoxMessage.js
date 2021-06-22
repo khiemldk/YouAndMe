@@ -19,7 +19,7 @@ const MyMessage = () => {
           </p>
         </div>
       </div>
-      <img src="http://placehold.it/300x300" />
+      <img src="/static/imgs/300x300.png" />
     </div>
   );
 }
@@ -28,7 +28,7 @@ const YourMessage = () => {
 
   return (
     <div className="my-message d-flex justify-content-between mb-5 ">
-      <img src="http://placehold.it/300x300" />
+      <img src="/static/imgs/300x300.png" />
       <div className="my-message__mess your-message pl-4 pr-4 pt-4 pb-4">
         <div className="my-message__infor">
           <div className="pb-3 mb-3 grid d-flex justify-content-between">
@@ -66,7 +66,7 @@ const BoxAllMessage = ({ handleClick }) => {
   return (
     <Link route={getPathName()}>
       <div className="all-message d-flex pr-5 pl-5 mb-5">
-        <img src="http://placehold.it/300x300" />
+        <img src="/static/imgs/300x300.png" />
         <div className="grid pl-4">
           <div className="d-flex justify-content-between">
             <strong>Khiem lee</strong> <span className="text-right">a min ago</span>

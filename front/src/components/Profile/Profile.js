@@ -6,10 +6,10 @@ import './style.scss'
 const Profile = () => {
   return (
     <div className="profile grid">
-      <div className="profile__cover" style={{ background: 'url(http://placehold.it/1030x360) no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <div className="profile__cover" style={{ background: 'url(/static/imgs1030x360.png) no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="grid profile__option d-lg-flex d-none">
           <div className="col-lg-3">
-            <img src='http://placehold.it/300x300' className="profile__picture" />
+            <img src='/static/imgs/300x300.png' className="profile__picture" />
             <div className="profile__name text-center ml-n4">
               <span>Khiêm Lê Đình<br /></span>
               <span>Developer</span>
@@ -46,7 +46,7 @@ const Profile = () => {
         </div>
         <div className="grid profile__mobile-option d-lg-none d-flex">
           <div className="profile__mobile-info">
-            <img src='http://placehold.it/300x300' />
+            <img src='/static/imgs/300x300.png' />
             <p className="text-center name mt-3">Lê Đình Khiêm</p>
             <p className="text-center">Developer</p>
           </div>

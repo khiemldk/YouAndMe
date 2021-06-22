@@ -17,7 +17,7 @@ public class ActivityResponse extends BaseResponse{
 	@JsonProperty(RESULT)
 	private List<ActivityDTO> activities;
 	private int totalPage;
-    private long totalActivity;
+    private int totalActivity;
 	public ActivityResponse(
 		Error error,
 		List<ActivityDTO> activities,

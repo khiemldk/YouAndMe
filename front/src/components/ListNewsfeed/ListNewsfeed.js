@@ -45,7 +45,7 @@ const ItemNews = ({ type, onClick, item }) => {
           <span className="mr-4 mr-3"><AiOutlineLike size={16} /> 49 </span> <span><AiOutlineDislike size={16} /> 0 </span>
         </div>
         <div className='mt-3 ml-4 mr-4 item-news__info d-flex pb-4'>
-          <img src="http://placehold.it/300x300" />
+          <img src="/static/imgs/300x300.png" />
           <div className="ml-4">
             <p><strong>Khiem lee</strong></p>
             <span>Friend</span>

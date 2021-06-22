@@ -2,16 +2,21 @@ package com.youandme.entities;
 
 import java.util.Date;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
 @Entity
 @Data
-public class Friend {
+public class FriendRequest {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
@@ -20,27 +25,20 @@ public class Friend {
 	@Column(name = "USERID")
 	private Integer userId;
 	
-	@Column(name = "USERID2")
+	@Column(name = "USERID")
 	private Integer userId2;
-	
-	@Column(name = "ISFOLLOW")
-	private boolean isFollow;
-
-	@Column(name = "ISFAVORITE")
-	private int isFavorite;
 	
 	@Column(name = "CREATEDATE")
 	private Date createDate;
-
+	
 	@Column(name = "UPDATEDATE")
 	private Date updateDate;
-
+	
 	@Column(name = "ACTIVEFLAG")
 	private boolean activeFlag;
-
+	
 	@ManyToOne
 	@JsonIgnore
     @JoinColumn(name = "USERID", referencedColumnName = "ID", insertable = false, updatable = false)
     private User user;
-	
 }

@@ -6,7 +6,7 @@ import './style.scss';
 const BoxCard = () => {
   return (
     <div className="box-card d-flex mt-5 grid">
-      <img src="http://placehold.it/300x300" />
+      <img src="/static/imgs/300x300.png" />
       <div className="box-card__infor m-auto">
         <Link route="/timeline?id=12">
           <a>

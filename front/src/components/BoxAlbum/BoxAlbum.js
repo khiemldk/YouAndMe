@@ -29,7 +29,7 @@ const AlbumItem = ({ isPlus, item, list, onClick }) => {
         </div>
       }
       {!isPlus &&
-        <img src={item ? item : 'http://placehold.it/1000x1000'} />
+        <img src={item ? item : '/static/imgs/1000x1000.png'} />
       }
     </div>
 
