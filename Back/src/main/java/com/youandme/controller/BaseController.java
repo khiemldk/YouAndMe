@@ -15,8 +15,10 @@ import com.youandme.dto.ActivityDTO;
 import com.youandme.dto.FriendsDTO;
 import com.youandme.entities.Activity;
 import com.youandme.entities.Friend;
+import com.youandme.entities.FriendRequest;
 import com.youandme.entities.User;
 import com.youandme.service.ActivityService;
+import com.youandme.service.FriendRequestService;
 import com.youandme.service.FriendService;
 import com.youandme.service.UserService;
 
@@ -27,7 +29,7 @@ public class BaseController {
 	@Autowired UserService userService;
 	@Autowired ActivityService activityService;
 	@Autowired FriendService friendService;
-	
+	@Autowired FriendRequestService friendRequestService;
 	// check valid
 	protected boolean checkPhoneNumber(String phoneNumber) {
 		String regex = "(8488|8491|8494|8483|8484|8485|8481|8482)+([0-9]{7})\\b";
@@ -91,8 +93,21 @@ public class BaseController {
 		return friendService.getAllFriend(name, value);
 	}
 	
+	public void InsertFriendRequest(FriendRequest friendRequest) {
+		friendRequestService.InsertFriendRequest(friendRequest);
+	}
+	
+	public void deleteFriendRequest(FriendRequest friendRequest) {
+		friendRequestService.DeleteFriendRequest(friendRequest);
+	}
+	
+	public FriendRequest findFriendRequestById(int id) {
+		return friendRequestService.findById(id);
+	}
+	
 	public FriendsDTO convertFriendsDTO(User user) {
 		return FriendsDTO.builder()
+				.id(user.getId())
 				.firstName(user.getFirstName())
 				.lastName(user.getLastName())
 				.major(user.getMajor())

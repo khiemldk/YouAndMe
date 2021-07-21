@@ -25,7 +25,7 @@ public class FriendRequest {
 	@Column(name = "USERID")
 	private Integer userId;
 	
-	@Column(name = "USERID")
+	@Column(name = "USERID2")
 	private Integer userId2;
 	
 	@Column(name = "CREATEDATE")

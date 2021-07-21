@@ -8,6 +8,7 @@ import lombok.Setter;
 @Setter
 @Builder
 public class FriendsDTO {
+	private Integer id;
 	private String firstName;
 	private String lastName;
 	private String major;

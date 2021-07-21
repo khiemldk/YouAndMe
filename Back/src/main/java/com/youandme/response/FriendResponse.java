@@ -14,7 +14,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class FriendResponse extends BaseResponse{
+public class FriendResponse extends BaseResponse {
 	@JsonProperty(RESULT)
 	private List<FriendsDTO> list;
 	private int totalPage;
