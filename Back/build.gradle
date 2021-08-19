@@ -17,17 +17,28 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	runtimeOnly 'mysql:mysql-connector-java'
+    implementation 'org.jetbrains:annotations:20.1.0'
+    runtimeOnly 'mysql:mysql-connector-java'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 	testImplementation group: 'junit', name: 'junit', version: '4.4'
-	
-	// add 
+
+	// add
 	implementation group: 'org.threeten', name: 'threetenbp', version: '1.5.0'
 	implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.4.28.Final'
 	implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
-	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.security:spring-security-oauth2-resource-server'
+	implementation 'org.springframework.security:spring-security-oauth2-jose'
+	implementation('io.jsonwebtoken:jjwt:0.2')
+	compileOnly 'org.projectlombok:lombok:1.18.20'
+	annotationProcessor 'org.projectlombok:lombok:1.18.16'
+	testCompileOnly 'org.projectlombok:lombok:1.18.16'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
+	// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+	implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.1'
+
 }
 
 test {

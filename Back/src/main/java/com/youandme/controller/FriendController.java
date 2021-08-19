@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import com.youandme.service.FriendService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.youandme.dto.FriendsDTO;
@@ -23,23 +22,14 @@ import com.youandme.until.Error;
 
 @RestController
 public class FriendController extends BaseController {
-	@PostMapping("/getfriends")
-	public BaseResponse getFriend(@RequestBody UserRequest request){
-		if (request != null) {
-			if (request.getId() != null) {
-				User user = findById(request.getId());
-				if (user != null) {
-					
-					return new FriendResponse(Error.ID_NOT_FOUND, new ArrayList<>(),0,0);
-				} else {
-					return new FriendResponse(Error.ID_NOT_FOUND, new ArrayList<>(),0,0);
-				}
-			} else {
-				return new FriendResponse(Error.UNKNOWN, new ArrayList<>(),0,0);
-			}
-		} else {
-			return new FriendResponse(Error.UNKNOWN, new ArrayList(), 0 ,0);
-		}
+	@Autowired
+	FriendService friendService;
+
+
+	@GetMapping("/getfriends")
+	public FriendResponse getFriend(@PathVariable Integer id ){
+		List<Friend> friends = friendService.getAllFriend("USERID" , id);
+		List<FriendsDTO> list = friends.stream().map()
 	}
 	
 	@PostMapping("/insert/request")

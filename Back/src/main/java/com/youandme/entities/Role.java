@@ -25,7 +25,7 @@ public class Role {
 	private String name;
 	
 	@Column(name = "DESCRIPTION")
-	private int description;
+	private String description;
 	
 	@Column(name = "CREATEDATE")
 	private Date createDate;

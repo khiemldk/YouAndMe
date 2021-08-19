@@ -130,7 +130,7 @@ public class UserController extends BaseController {
 			if (request.getEmail() != null) {
 				if (checkEmail(request.getEmail())) {
 					List<User> list = findByUserName("email", request.getEmail());
-					if (list.size() == 0) {
+					if (list.isEmpty()) {
 						if (request.getEmail() != null) {
 							user.setEmail(request.getEmail());
 						}

@@ -1,5 +1,8 @@
 package com.youandme.dao;
 
-public interface UserDAO<E> extends BaseDAO<E>{
+import java.util.List;
 
+public interface UserDAO<E> extends BaseDAO<E>{
+    List<E> findByEmail(String name, Object value);
+    List<E> getListFriendsByUserId(Integer listFriend);
 }

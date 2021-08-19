@@ -1,21 +1,16 @@
 package com.youandme.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
+import lombok.ToString;
+
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
-import lombok.Data;
-import lombok.ToString;
-import lombok.ToString.Include;
-
-
 @Entity
 @Data
-public class User {
+public class User{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
@@ -80,13 +75,22 @@ public class User {
 	
 	@Column(name = "ACTIVEFLAG")
 	private boolean activeFlag;
-	
+
+	@ToString.Exclude
 	@OneToMany(targetEntity = Friend.class, mappedBy = "user", cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE
     }, fetch = FetchType.LAZY)
 	@JsonIgnore
     private List<Friend> friends;
+
+	@ToString.Exclude
+	@OneToMany(targetEntity = UserRole.class, mappedBy = "user", cascade = {
+			CascadeType.PERSIST,
+			CascadeType.MERGE
+	}, fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<UserRole> userRoles;
 //	
 //	@OneToMany(targetEntity = Follower.class, mappedBy = "user", cascade = {
 //            CascadeType.PERSIST,

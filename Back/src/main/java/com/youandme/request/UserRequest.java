@@ -1,11 +1,13 @@
 package com.youandme.request;
 
-import java.util.Date;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import com.youandme.entities.User;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.util.ObjectUtils;
+
+import java.util.Date;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -29,6 +31,8 @@ public class UserRequest extends BaseRequest{
 	private Date updateDate;
 	private String userName;
 	private String pass;
+	private Set<Integer> role;
+
 	
 	public UserRequest(
 		@JsonProperty("Id") Integer id,
@@ -49,7 +53,8 @@ public class UserRequest extends BaseRequest{
 		@JsonProperty("createDate") Date createDate,
 		@JsonProperty("updateDate") Date updateDate,
 		@JsonProperty("userName") String userName,
-		@JsonProperty("pass") String pass
+		@JsonProperty("pass") String pass,
+		@JsonProperty("role") Set<Integer> role
 	) {
 		this.Id = id;
 		this.firstName = firstName;
@@ -70,6 +75,31 @@ public class UserRequest extends BaseRequest{
 		this.commune = commune;
 		this.userName = userName;
 		this.pass = pass;
-		
+		this.role = role;
+	}
+	public static User convertFromUserRequest(UserRequest request){
+		User user = new User();
+		if(!ObjectUtils.isEmpty(request)){
+			user.setActiveFlag(true);
+			user.setId(request.getId());
+			user.setFirstName(request.getFirstName());
+			user.setLastName(request.getLastName());
+			user.setPhoneNumber(request.getPhoneNumber());
+			user.setEmail(request.getEmail());
+			user.setBirthDay(request.getBirthDay());
+			user.setGender(request.isGender());
+			user.setCity(request.getCity());
+			user.setCountry(request.getCountry());
+			user.setAvatar(request.getAvatar());
+			user.setCoverPicture(request.getCoverPicture());
+			user.setDistrict(request.getDistrict());
+			user.setMajor(request.getMajor());
+			user.setStatus(request.isStatus());
+			user.setCreateDate(request.getCreateDate());
+			user.setUpdateDate(request.getUpdateDate());
+			user.setCommune(request.getCommune());
+			user.setPass(request.getPass());
+		}
+		return user;
 	}
 }

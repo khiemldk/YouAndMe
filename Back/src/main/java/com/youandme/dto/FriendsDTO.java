@@ -1,12 +1,14 @@
 package com.youandme.dto;
 
+import com.youandme.entities.Friend;
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
-@Builder
+
+
+@Data
 public class FriendsDTO {
 	private Integer id;
 	private String firstName;
@@ -14,4 +16,10 @@ public class FriendsDTO {
 	private String major;
 	private String avatar;
 	private String coverPicture;
+
+		public static FriendsDTO formatFromFriend(User friend){
+		FriendsDTO friendsDTO= new FriendsDTO();
+		friendsDTO.set
+
+	}
 }

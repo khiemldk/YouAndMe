@@ -10,6 +10,5 @@ public class UserResponse extends BaseResponse{
 	
 	public UserResponse(Error error) {
 		super(error);
-
 	}
 }

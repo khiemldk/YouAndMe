@@ -3,6 +3,7 @@ package com.youandme.daoimple;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
+import java.util.StringJoiner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -90,7 +91,7 @@ public class BaseImple<E> implements BaseDAO<E> {
 			append(getGenericName()).
 			append(" as model where model.activeFlag = 1 and ");
 		for(String key : maps.keySet()) {
-			if (maps.get(key) != null && maps.get(key) != null) {
+			if (maps.get(key) != null) {
 				query.append(key).append(" = '").append(maps.get(key)).append("'");
 				query.append(" and ");
 			}

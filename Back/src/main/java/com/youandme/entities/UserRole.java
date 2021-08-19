@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
+import lombok.ToString;
 
 @Entity
 @Data
@@ -36,11 +37,13 @@ public class UserRole {
 	
 	@Column(name = "ACTIVEFLAG")
 	private boolean activeFlag;
-	
+
+	@ToString.Exclude
 	@ManyToOne
 	@JsonIgnore
     @JoinColumn(name = "USERID", referencedColumnName = "ID", insertable = false, updatable = false)
     private User user;
+	@ToString.Exclude
 	@ManyToOne
 	@JsonIgnore
     @JoinColumn(name = "ROLEID", referencedColumnName = "ID", insertable = false, updatable = false)

@@ -12,7 +12,7 @@ import com.youandme.entities.User;
 
 
 @SpringBootApplication
-@EnableAutoConfiguration(exclude = { //
+(exclude = { //
         DataSourceAutoConfiguration.class, //
         DataSourceTransactionManagerAutoConfiguration.class, //
         HibernateJpaAutoConfiguration.class,

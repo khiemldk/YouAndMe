@@ -1,16 +1,5 @@
 package com.youandme.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.regex.Pattern;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-
 import com.youandme.dto.ActivityDTO;
 import com.youandme.dto.FriendsDTO;
 import com.youandme.entities.Activity;
@@ -21,8 +10,17 @@ import com.youandme.service.ActivityService;
 import com.youandme.service.FriendRequestService;
 import com.youandme.service.FriendService;
 import com.youandme.service.UserService;
-
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
 
 @Slf4j
 public class BaseController {
@@ -104,17 +102,7 @@ public class BaseController {
 	public FriendRequest findFriendRequestById(int id) {
 		return friendRequestService.findById(id);
 	}
-	
-	public FriendsDTO convertFriendsDTO(User user) {
-		return FriendsDTO.builder()
-				.id(user.getId())
-				.firstName(user.getFirstName())
-				.lastName(user.getLastName())
-				.major(user.getMajor())
-				.avatar(user.getAvatar())
-				.coverPicture(user.getCoverPicture())
-				.build();
-	}
+
 	
 //	_____________________________________________________________________________________________
 	
@@ -127,5 +115,8 @@ public class BaseController {
 	        } else
 	            return new PageImpl<>(new ArrayList<>(), pageable, data.size());
 	    }
-	
+	// get User from Email
+	public User getUserFromEmail(String email){
+		return  userService.getByEmail(email);
+	}
 }

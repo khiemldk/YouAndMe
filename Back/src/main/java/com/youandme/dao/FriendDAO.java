@@ -1,5 +1,8 @@
 package com.youandme.dao;
 
-public interface FriendDAO<E> extends BaseDAO<E> {
+import com.youandme.entities.User;
 
+import java.util.List;
+
+public interface FriendDAO<E> extends BaseDAO<E> {
 }

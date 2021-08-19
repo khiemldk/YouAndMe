@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.youandme.dao.UserDAO;
 import com.youandme.entities.User;
+import org.springframework.util.ObjectUtils;
 
 @Service
 public class UserService {
@@ -37,5 +39,18 @@ public class UserService {
 	
 	public User findById(int id) {
 		return userDAO.findById(User.class, id);
+	}
+
+	@Cacheable("user")
+	public User getByEmail(String email){
+		User user = userDAO.findByEmail("email" ,email).get(0);
+		return user;
+	}
+
+	public boolean emailIsExit(String email){
+		if(ObjectUtils.isEmpty(userDAO.findByEmail("email" ,email))) {
+			return true;
+		}
+		return false;
 	}
 }
