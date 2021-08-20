@@ -39,14 +39,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // //CSRF ( Cross Site Request Forgery) là kĩ thuật tấn công bằng cách sử dụng quyền chứng thực của người sử dụng đối với 1 website khác
         http.csrf().disable();
         // Các trang không yêu cầu login như vậy ai cũng có thể vào được admin hay user hoặc guest có thể vào các trang
-        http.authorizeRequests().antMatchers("/" ,"/login","/logout").permitAll()
-        .anyRequest().authenticated();
+        http.authorizeRequests().antMatchers("/" ,"/login","/logout").permitAll();
         // Trang /userInfo yêu cầu phải login với vai trò ROLE_USER hoặc ROLE_ADMIN.
         // Nếu chưa login, nó sẽ redirect tới trang /login.sau Mình dung hasAnyRole để cho phép ai được quyền vào
         // 2  ROLE_USER và ROLEADMIN thì ta lấy từ database ra cái mà mình chèn vô ở bước 1 (chuẩn bị database)
-       /* http.authorizeRequests().antMatchers("/userInfo").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
+        http.authorizeRequests().antMatchers("/userInfo").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
         // Trang chỉ dành cho ADMIN
-        http.authorizeRequests().antMatchers("/admin").access("hasRole('ROLE_ADMIN')");*/
+        http.authorizeRequests().antMatchers("/admin").access("hasRole('ROLE_ADMIN')");
         // Khi người dùng đã login, với vai trò user .
         // Nhưng cố ý  truy cập vào trang admin
         // Ngoại lệ AccessDeniedException sẽ ném ra.
