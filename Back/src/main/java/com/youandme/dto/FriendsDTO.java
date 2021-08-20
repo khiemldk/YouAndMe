@@ -1,6 +1,7 @@
 package com.youandme.dto;
 
 import com.youandme.entities.Friend;
+import com.youandme.entities.User;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
@@ -19,7 +20,11 @@ public class FriendsDTO {
 
 		public static FriendsDTO formatFromFriend(User friend){
 		FriendsDTO friendsDTO= new FriendsDTO();
-		friendsDTO.set
-
+		friendsDTO.setId(friend.getId());
+		friendsDTO.setFirstName(friend.getAvatar());
+		friendsDTO.setLastName(friend.getLastName());
+		friendsDTO.setMajor(friend.getMajor());
+		friendsDTO.setCoverPicture(friend.getCoverPicture());
+		return friendsDTO;
 	}
 }

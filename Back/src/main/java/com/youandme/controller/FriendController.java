@@ -3,9 +3,14 @@ package com.youandme.controller;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
+import com.youandme.dto.ActivityDTO;
+import com.youandme.request.PageRequest;
 import com.youandme.service.FriendService;
+import com.youandme.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,62 +27,74 @@ import com.youandme.until.Error;
 
 @RestController
 public class FriendController extends BaseController {
-	@Autowired
-	FriendService friendService;
+    @Autowired
+    FriendService friendService;
+
+    @Autowired
+    UserService userService;
 
 
-	@GetMapping("/getfriends")
-	public FriendResponse getFriend(@PathVariable Integer id ){
-		List<Friend> friends = friendService.getAllFriend("USERID" , id);
-		List<FriendsDTO> list = friends.stream().map()
-	}
-	
-	@PostMapping("/insert/request")
-	public BaseResponse insertRequest(@RequestBody FriendRequestRequest request) {
-		if (request != null) {
-			if (request.getUserId() != null ) {
-				User user = findById(request.getUserId());
-				if (user != null ) {
-					User user2 = findById(request.getUserId2());
-					if (user2 != null) {
-						FriendRequest friendRequest = new FriendRequest();
-						friendRequest.setUserId(request.getUserId());
-						friendRequest.setUserId2(request.getUserId2());
-						friendRequest.setActiveFlag(true);
-						friendRequest.setCreateDate(new Date());
-						friendRequest.setUpdateDate(new Date());
-						InsertFriendRequest(friendRequest);
-						return new FriendRequestResponse(Error.SUCCESS);
-					} else {
-						return new FriendRequestResponse(Error.ID_NOT_FOUND);
-					}
-				} else {
-					return new FriendRequestResponse(Error.ID_NOT_FOUND);
-				}
-			} else {
-				return new FriendRequestResponse(Error.UNKNOWN);
-			}
-		} else {
-			return new FriendRequestResponse(Error.UNKNOWN);
-		}
-	}
-	
-	@PostMapping("/delete/request")
-	public BaseResponse deleteFriendRequest(@RequestBody FriendRequestRequest request) {
-		if (request != null) {
-			if (request.getId() != null ) {
-				FriendRequest friendRequest = findFriendRequestById(request.getId());
-				if (friendRequest != null) {
-					deleteFriendRequest(friendRequest);
-					return new FriendRequestResponse(Error.SUCCESS);
-				} else {
-					return new FriendRequestResponse(Error.UNKNOWN);
-				}
-			} else {
-				return new FriendRequestResponse(Error.ID_NOT_FOUND);
-			}
-		} else {
-			return new FriendRequestResponse(Error.UNKNOWN);
-		}
-	}
+    @GetMapping("/getfriends")
+    public FriendResponse getFriend(@PathVariable int id, @PathVariable PageRequest pageRequest) {
+        FriendResponse response = new FriendResponse();
+
+        List<User> friends = userService.getListFriendById(id);
+        List<FriendsDTO> friendsDTOList = friends.stream().
+                map(c -> FriendsDTO.formatFromFriend(c)).collect(Collectors.toList());
+
+        response.setList(friendsDTOList);
+		Page<FriendsDTO> page = setUpPage(friendsDTOList, pageRequest.getPageNumber(), pageRequest.getPageSize());
+        response.setTotalPage(page.getTotalPages());
+        response.setTotalFriend(friendsDTOList.size());
+        return response;
+    }
+
+    @PostMapping("/insert/request")
+    public BaseResponse insertRequest(@RequestBody FriendRequestRequest request) {
+        if (request != null) {
+            if (request.getUserId() != null) {
+                User user = findById(request.getUserId());
+                if (user != null) {
+                    User user2 = findById(request.getUserId2());
+                    if (user2 != null) {
+                        FriendRequest friendRequest = new FriendRequest();
+                        friendRequest.setUserId(request.getUserId());
+                        friendRequest.setUserId2(request.getUserId2());
+                        friendRequest.setActiveFlag(true);
+                        friendRequest.setCreateDate(new Date());
+                        friendRequest.setUpdateDate(new Date());
+                        InsertFriendRequest(friendRequest);
+                        return new FriendRequestResponse(Error.SUCCESS);
+                    } else {
+                        return new FriendRequestResponse(Error.ID_NOT_FOUND);
+                    }
+                } else {
+                    return new FriendRequestResponse(Error.ID_NOT_FOUND);
+                }
+            } else {
+                return new FriendRequestResponse(Error.UNKNOWN);
+            }
+        } else {
+            return new FriendRequestResponse(Error.UNKNOWN);
+        }
+    }
+
+    @PostMapping("/delete/request")
+    public BaseResponse deleteFriendRequest(@RequestBody FriendRequestRequest request) {
+        if (request != null) {
+            if (request.getId() != null) {
+                FriendRequest friendRequest = findFriendRequestById(request.getId());
+                if (friendRequest != null) {
+                    deleteFriendRequest(friendRequest);
+                    return new FriendRequestResponse(Error.SUCCESS);
+                } else {
+                    return new FriendRequestResponse(Error.UNKNOWN);
+                }
+            } else {
+                return new FriendRequestResponse(Error.ID_NOT_FOUND);
+            }
+        } else {
+            return new FriendRequestResponse(Error.UNKNOWN);
+        }
+    }
 }

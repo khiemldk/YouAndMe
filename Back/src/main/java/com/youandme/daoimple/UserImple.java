@@ -31,12 +31,12 @@ public class UserImple extends BaseImple<User> implements UserDAO<User>{
     }
 
     @Override
-    public List<User> getListFriendsByUserId(Integer listFriend) {
+    public List<User> getListFriendsByUserId(Integer userID) {
         StringBuilder query = new StringBuilder("");
-        query.append(" from ")
-                .
-                .append(" as model where model.activeFlag = 1 and model.email")
-                .append("= '").append(value).append("'");
+        query.append(" from user a ")
+                .append(" where a.ACTIVEFLAG = 1 ")
+                .append("and a.id in (select f.USERID2 from friend f where f.USERID = ")
+                .append(userID).append(")");
         Session ss  = sessionFactory.getCurrentSession();
         Query<User> res = ss.createQuery(query.toString());
         return  res.list();

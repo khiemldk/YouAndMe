@@ -53,4 +53,8 @@ public class UserService {
 		}
 		return false;
 	}
+
+	public List<User> getListFriendById(Integer userId){
+		return userDAO.getListFriendsByUserId(userId);
+	}
 }

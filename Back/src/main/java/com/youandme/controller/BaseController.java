@@ -1,7 +1,6 @@
 package com.youandme.controller;
 
 import com.youandme.dto.ActivityDTO;
-import com.youandme.dto.FriendsDTO;
 import com.youandme.entities.Activity;
 import com.youandme.entities.Friend;
 import com.youandme.entities.FriendRequest;

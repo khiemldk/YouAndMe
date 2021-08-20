@@ -9,16 +9,20 @@ import com.youandme.dto.FriendsDTO;
 import com.youandme.until.Error;
 
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 public class FriendResponse extends BaseResponse {
 	@JsonProperty(RESULT)
 	private List<FriendsDTO> list;
 	private int totalPage;
     private int totalFriend;
+
+   public FriendResponse(){
+
+   }
     public FriendResponse(
     	Error error, 
     	List<FriendsDTO> list, 
@@ -29,5 +33,6 @@ public class FriendResponse extends BaseResponse {
     	this.totalPage = totalPage;
     	this.totalFriend = totalFriend;
     }
+
     
 }
