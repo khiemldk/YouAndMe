@@ -2,6 +2,8 @@ package com.youandme.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import com.youandme.entities.Friend;
+import com.youandme.entities.FriendRequest;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,4 +22,9 @@ public class FriendRequestRequest {
 		this.userId =  userId;
 		this.userId2 = userId2;
 	}
+
+	/*public static Friend convertFromFriendRequest(FriendRequest friendRequest){
+		Friend friend = new Friend();
+		friend.setId();
+	}*/
 }

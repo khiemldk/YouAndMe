@@ -19,7 +19,7 @@ public class UserImple extends BaseImple<User> implements UserDAO<User>{
     @Autowired
     SessionFactory sessionFactory;
     @Override
-    public List<User> findByEmail(String name, Object value) {
+    public User findByEmail(String name, Object value) {
         StringBuilder query = new StringBuilder("");
         query.append(" from ")
                 .append(getGenericName())
@@ -27,15 +27,15 @@ public class UserImple extends BaseImple<User> implements UserDAO<User>{
                 .append("= '").append(value).append("'");
         Session ss  = sessionFactory.getCurrentSession();
         Query<User> res = ss.createQuery(query.toString());
-        return  res.list();
+        return  res.uniqueResult();
     }
 
     @Override
     public List<User> getListFriendsByUserId(Integer userID) {
         StringBuilder query = new StringBuilder("");
-        query.append(" from user a ")
-                .append(" where a.ACTIVEFLAG = 1 ")
-                .append("and a.id in (select f.USERID2 from friend f where f.USERID = ")
+        query.append(" from com.youandme.entities.User as a ")
+                .append(" where a.activeFlag = 1 ")
+                .append("and a.Id in (select f.userId2 from com.youandme.entities.Friend as f where f.userId = ")
                 .append(userID).append(")");
         Session ss  = sessionFactory.getCurrentSession();
         Query<User> res = ss.createQuery(query.toString());

@@ -10,6 +10,7 @@ import java.util.List;
 public class UserDTO {
     private String email;
     private String pass;
+
     List<GrantedAuthority> grantList;
 
     public UserDTO() {

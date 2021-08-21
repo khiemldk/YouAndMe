@@ -43,7 +43,7 @@ public class UserService {
 
 	@Cacheable("user")
 	public User getByEmail(String email){
-		User user = userDAO.findByEmail("email" ,email).get(0);
+		User user = userDAO.findByEmail("email" ,email);
 		return user;
 	}
 

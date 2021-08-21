@@ -13,7 +13,4 @@ public class LoginResponse extends BaseResponse{
 	public LoginResponse(Error error) {
 		super(error);
 	}
-	public LoginResponse(String accsessToken){
-		super(accsessToken);
-	}
 }

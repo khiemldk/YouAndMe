@@ -23,6 +23,7 @@ public class FriendsDTO {
 		friendsDTO.setId(friend.getId());
 		friendsDTO.setFirstName(friend.getAvatar());
 		friendsDTO.setLastName(friend.getLastName());
+		friendsDTO.setAvatar(friend.getAvatar());
 		friendsDTO.setMajor(friend.getMajor());
 		friendsDTO.setCoverPicture(friend.getCoverPicture());
 		return friendsDTO;

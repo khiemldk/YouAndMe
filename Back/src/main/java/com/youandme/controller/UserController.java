@@ -2,13 +2,9 @@ package com.youandme.controller;
 
 import java.util.List;
 
+import com.youandme.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.youandme.entities.User;
 import com.youandme.request.UserRequest;
@@ -168,6 +164,15 @@ public class UserController extends BaseController {
 			}
 		} else {
 			return new UserResponse(Error.UNKNOWN);
+		}
+	}
+	@GetMapping("/getListActiveUser")
+	public UserResponse getListActiveUser(@RequestParam Integer userID){
+
+		try {
+			List <UserDTO> list
+		}catch (Exception e){
+
 		}
 	}
 }

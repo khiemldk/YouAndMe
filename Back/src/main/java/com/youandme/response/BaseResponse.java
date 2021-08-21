@@ -9,7 +9,6 @@ import lombok.Setter;
 public class BaseResponse {
     private int errorCode;
     private String message;
-    private String accsessToken;
 
     public BaseResponse(){
 
@@ -19,8 +18,5 @@ public class BaseResponse {
     public BaseResponse(Error error) {
         this.errorCode = error.getErrorCode();
         this.message = error.getErrorDescription();
-    }
-    public BaseResponse(String accsessToken){
-        this.accsessToken = accsessToken;
     }
 }
